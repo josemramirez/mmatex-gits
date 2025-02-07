@@ -1,7 +1,8 @@
 \documentclass{article}\usepackage{graphicx} \usepackage{amsmath} \usepackage{colortbl}\title{Cosmology 101 - Version 0.1}
 \author{J. M. Ram{\'i}rez,$^{1}$ Co-Author1,$^{4}$ Co-Author2,$^{5}$}
 \date{\today}\begin{document}
-\maketitle\begin{abstract}
+\maketitle% Introduction to the problem and its relevance
+ \begin{abstract}
  Behavioral responses to epidemic threats significantly impact disease transmission dynamics, yet existing epidemiological models often oversimplify these responses by relying on single-metric threshold approaches. While such models capture basic behavioral changes, they fail to reflect the nuanced decision-making processes where individuals consider multiple factors when assessing risk. 
  
  % Identifying the gap and our approach
@@ -9,7 +10,8 @@
  
  % Methods and results
  Through numerical simulations and comparative analysis, we demonstrate that this dual-metric approach more accurately captures real-world behavioral adaptation patterns compared to traditional threshold-based models. Our results show significant differences in predicted epidemic trajectories, with the dual-metric model generally predicting lower peak infection rates but potentially longer epidemic duration due to more nuanced behavioral modulation. This work provides valuable insights for public health planning and demonstrates the importance of incorporating multi-dimensional risk assessment in epidemic modeling.
- \end{abstract}\section{Introduction}
+ \end{abstract}
+}\section{Introduction}
 The dynamics of infectious disease transmission are fundamentally shaped by human behavior, with individuals modifying their contact patterns in response to perceived epidemic risks. Classical epidemiological models have traditionally focused on biological and demographic factors while treating behavioral responses as either absent or highly simplified. However, recent experiences with COVID-19 and other emerging diseases have highlighted the critical importance of incorporating realistic behavioral adaptations into epidemic forecasting.
 
 Traditional SEIR models and their variants have served as foundational tools for understanding disease spread \cite{anderson1992infectious}. While these models have been extensively enhanced to include various biological and social factors \cite{hethcote2000mathematics}, their treatment of behavioral responses often relies on simple threshold-based approaches where populations uniformly alter contact rates once infection levels cross predetermined thresholds \cite{funk2010modelling}.
@@ -25,4 +27,42 @@ This paper addresses these limitations by developing an enhanced SEIR framework 
 \item Analysis of the impact of various parameter combinations on epidemic trajectories and overall disease burden
 \end{itemize}
 
-The proposed model builds upon existing work in behavioral epidemiology \cite{verelst2016behavioural} while introducing a more nuanced approach to capturing risk perception and response. By incorporating both static and dynamic risk metrics, our framework better reflects the multi-dimensional nature of individual decision-making during epidemics. This advancement is particularly relevant for public health planning and intervention design, as it provides a more realistic basis for predicting population-level behavioral changes and their subsequent impact on disease transmission. \begin{equation}x^2 \mathcal{M} \tilde{\rho }^{\frac{\gamma +1}{2}}=\lambda \label{Mi ecuacio} \end{equation}\end{document}
+The proposed model builds upon existing work in behavioral epidemiology \cite{verelst2016behavioural} while introducing a more nuanced approach to capturing risk perception and response. By incorporating both static and dynamic risk metrics, our framework better reflects the multi-dimensional nature of individual decision-making during epidemics. This advancement is particularly relevant for public health planning and intervention design, as it provides a more realistic basis for predicting population-level behavioral changes and their subsequent impact on disease transmission.\section{Background}
+
+The study of epidemic dynamics through compartmental models has a rich history dating back to the seminal work of Kermack and McKendrick \cite{anderson1992infectious}. These models partition populations into distinct disease states and track their evolution through time using systems of ordinary differential equations. The SEIR model, in particular, has emerged as a fundamental framework for analyzing diseases with latent periods \cite{hethcote2000mathematics}.
+
+Behavioral epidemiology represents a significant advancement in this field, recognizing that disease transmission is not solely determined by biological factors but is substantially influenced by human behavior \cite{verelst2016behavioural}. Early attempts to incorporate behavior focused on prevalence-based responses, where contact rates were modeled as decreasing functions of current infection levels \cite{funk2010modelling}. These models demonstrated that behavioral changes could significantly alter epidemic trajectories, potentially reducing peak infection rates and extending epidemic duration.
+
+The integration of behavioral responses into epidemiological models has evolved through several stages:
+
+\begin{enumerate}
+\item Simple threshold models where behavior changes discretely at predetermined infection levels
+\item Continuous response functions based on current prevalence
+\item Game-theoretic approaches considering individual decision-making
+\item Network-based models incorporating social influence on behavior
+\end{enumerate}
+
+Recent work has highlighted the importance of perceived risk in driving behavioral changes \cite{wang2020impact}. However, existing models typically rely on single metrics for risk assessment, failing to capture the multi-dimensional nature of risk perception during epidemics.
+
+\subsection{Problem Setting}
+Consider a population of size N divided into four compartments: Susceptible (S), Exposed (E), Infectious (I), and Recovered (R). The behavioral response function $\beta(t)$ modifies the base transmission rate $\beta_0$ according to:
+
+\begin{equation}
+\beta(t) = \beta_0(1 - \phi(I(t), r(t)))
+\end{equation}
+
+where $\phi(I(t), r(t))$ represents the reduction in contact rates based on both current infection levels $I(t)$ and the 5-day growth rate $r(t)$. The growth rate is defined as:
+
+\begin{equation}
+r(t) = \frac{I(t) - I(t-5)}{I(t-5)}
+\end{equation}
+
+This formulation assumes:
+\begin{itemize}
+\item Population homogeneity in risk perception and behavioral response
+\item Perfect information about current infection levels and growth rates
+\item No explicit consideration of economic or social costs of behavior modification
+\item Instantaneous behavioral adaptation to changing conditions
+\end{itemize}
+
+The dual-metric approach builds upon existing behavioral epidemiology frameworks while introducing a more sophisticated mechanism for modeling risk perception and response. This advancement allows for more realistic representation of human behavior during epidemics, particularly in capturing anticipatory responses to rapidly changing situations. \begin{equation}x^2 \mathcal{M} \tilde{\rho }^{\frac{\gamma +1}{2}}=\lambda \label{Mi ecuacio} \end{equation}\end{document}
