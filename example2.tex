@@ -11,10 +11,10 @@ The challenge of modeling behavioral adaptation in epidemics is particularly com
 In this work, we develop a novel extension to the classical SEIR model that explicitly accounts for both instantaneous infection levels and short-term growth dynamics in shaping population behavior. Our key contributions include:
 
 \begin{itemize}
-    \item A dual-metric behavioral response function that modulates contact rates based on both current prevalence ($I(t)/N$) and 5-day growth trajectories ($\Delta I_5$)
-    \item A modified SEIR framework incorporating continuous tracking of multiple risk indicators
-    \item Extensive numerical analysis demonstrating improved prediction accuracy compared to single-metric models
-    \item Quantification of behavioral effects on epidemic trajectories, showing 23\% reduction in peak infections
+ \item A dual-metric behavioral response function that modulates contact rates based on both current prevalence ($I(t)/N$) and 5-day growth trajectories ($\Delta I_5$)
+ \item A modified SEIR framework incorporating continuous tracking of multiple risk indicators
+ \item Extensive numerical analysis demonstrating improved prediction accuracy compared to single-metric models
+ \item Quantification of behavioral effects on epidemic trajectories, showing 23\% reduction in peak infections
 \end{itemize}
 
 Our approach builds on previous work in behavioral epidemiology \cite{funk2010modelling} while introducing new mathematical tools for capturing multi-dimensional risk perception. By modeling how populations respond to both absolute infection levels and growth trends, we provide a more realistic framework for understanding epidemic dynamics under adaptive human behavior.
@@ -52,10 +52,10 @@ where $g(\cdot,\cdot)$ is a decreasing function in both arguments.
 
 Key assumptions in our framework include:
 \begin{itemize}
-    \item Population behavior responds continuously to both current prevalence and growth trends
-    \item The 5-day window for growth calculation provides sufficient signal while minimizing noise
-    \item Behavioral response depends on local information only (no spatial effects)
-    \item Perfect information about infection levels and growth rates is available to the population
+ \item Population behavior responds continuously to both current prevalence and growth trends
+ \item The 5-day window for growth calculation provides sufficient signal while minimizing noise
+ \item Behavioral response depends on local information only (no spatial effects)
+ \item Perfect information about infection levels and growth rates is available to the population
 \end{itemize}
 
 This formulation builds on previous behavioral models \cite{funk2009spread} while introducing novel elements to capture multi-dimensional risk perception. The resulting system of differential equations maintains mathematical tractability while incorporating more realistic behavioral dynamics.\section{Method}
@@ -101,17 +101,17 @@ where $E_0$ and $I_0$ represent initial exposed and infectious populations.
 
 Parameter values are calibrated based on existing literature \cite{anderson1992infectious}:
 \begin{itemize}
-    \item Baseline transmission rate: $\beta_0 = 0.3$ days$^{-1}$
-    \item Latency rate: $\sigma = 1/5.2$ days$^{-1}$
-    \item Recovery rate: $\gamma = 1/7$ days$^{-1}$
-    \item Behavioral response parameters: $\alpha_1 = 100$, $\alpha_2 = 2$
+ \item Baseline transmission rate: $\beta_0 = 0.3$ days$^{-1}$
+ \item Latency rate: $\sigma = 1/5.2$ days$^{-1}$
+ \item Recovery rate: $\gamma = 1/7$ days$^{-1}$
+ \item Behavioral response parameters: $\alpha_1 = 100$, $\alpha_2 = 2$
 \end{itemize}
 
 To evaluate model performance, we compare epidemic trajectories under three scenarios:
 \begin{enumerate}
-    \item Traditional SEIR (constant $\beta$)
-    \item Single-metric response (prevalence-only, $\alpha_2 = 0$)
-    \item Dual-metric response (full model)
+ \item Traditional SEIR (constant $\beta$)
+ \item Single-metric response (prevalence-only, $\alpha_2 = 0$)
+ \item Dual-metric response (full model)
 \end{enumerate}
 
 Each scenario is simulated over a 200-day period with population size $N = 10^6$ and initial conditions $E_0 = 100$, $I_0 = 20$. We track key epidemiological metrics including peak infection rates, timing of peak, and total outbreak size. \begin{equation}x^2 \mathcal{M} \tilde{\rho }^{\frac{\gamma +1}{2}}=\lambda \label{Mi ecuacion 8} \end{equation}\end{document}
