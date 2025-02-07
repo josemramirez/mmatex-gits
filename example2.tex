@@ -22,4 +22,36 @@ The study of epidemic dynamics through compartmental models has a rich history d
 
 Behavioral epidemiology represents a significant advancement in this field, recognizing that disease transmission is not solely determined by biological factors but is substantially influenced by human behavior \cite{verelst2016behavioural}. Early attempts to incorporate behavior focused on prevalence-based responses, where contact rates were modeled as decreasing functions of current infection levels \cite{funk2010modelling}. These models demonstrated that behavioral changes could significantly alter epidemic trajectories, potentially reducing peak infection rates and extending epidemic duration.
 
-The integration of behavioral responses into epidemiological models has evolved through several stages:\end{document}
+The integration of behavioral responses into epidemiological models has evolved through several stages:
+
+\begin{enumerate}
+\item Simple threshold models where behavior changes discretely at predetermined infection levels
+\item Continuous response functions based on current prevalence
+\item Game-theoretic approaches considering individual decision-making
+\item Network-based models incorporating social influence on behavior
+\end{enumerate}
+
+Recent work has highlighted the importance of perceived risk in driving behavioral changes \cite{wang2020impact}. However, existing models typically rely on single metrics for risk assessment, failing to capture the multi-dimensional nature of risk perception during epidemics.
+
+\subsection{Problem Setting}
+Consider a population of size N divided into four compartments: Susceptible (S), Exposed (E), Infectious (I), and Recovered (R). The behavioral response function $\beta(t)$ modifies the base transmission rate $\beta_0$ according to:
+
+\begin{equation}
+\beta(t) = \beta_0(1 - \phi(I(t), r(t)))
+\end{equation}
+
+where $\phi(I(t), r(t))$ represents the reduction in contact rates based on both current infection levels $I(t)$ and the 5-day growth rate $r(t)$. The growth rate is defined as:
+
+\begin{equation}
+r(t) = \frac{I(t) - I(t-5)}{I(t-5)}
+\end{equation}
+
+This formulation assumes:
+\begin{itemize}
+\item Population homogeneity in risk perception and behavioral response
+\item Perfect information about current infection levels and growth rates
+\item No explicit consideration of economic or social costs of behavior modification
+\item Instantaneous behavioral adaptation to changing conditions
+\end{itemize}
+
+The dual-metric approach builds upon existing behavioral epidemiology frameworks while introducing a more sophisticated mechanism for modeling risk perception and response. This advancement allows for more realistic representation of human behavior during epidemics, particularly in capturing anticipatory responses to rapidly changing situations.\end{document}
