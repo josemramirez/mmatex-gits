@@ -58,4 +58,60 @@ Key assumptions in our framework include:
     \item Perfect information about infection levels and growth rates is available to the population
 \end{itemize}
 
-This formulation builds on previous behavioral models \cite{funk2009spread} while introducing novel elements to capture multi-dimensional risk perception. The resulting system of differential equations maintains mathematical tractability while incorporating more realistic behavioral dynamics. \begin{equation}x^2 \mathcal{M} \tilde{\rho }^{\frac{\gamma +1}{2}}=\lambda \label{Mi ecuacion 8} \end{equation}\end{document}
+This formulation builds on previous behavioral models \cite{funk2009spread} while introducing novel elements to capture multi-dimensional risk perception. The resulting system of differential equations maintains mathematical tractability while incorporating more realistic behavioral dynamics.\section{Method}
+Building on the dual-metric framework introduced in the Background section, we develop a modified SEIR model that incorporates behavioral adaptation based on both infection levels and growth rates. The system dynamics are described by:
+
+\begin{equation}
+\begin{aligned}
+\frac{dS}{dt} &= -\beta_{eff}(t)\frac{SI}{N} \
+\frac{dE}{dt} &= \beta_{eff}(t)\frac{SI}{N} - \sigma E \
+\frac{dI}{dt} &= \sigma E - \gamma I \
+\frac{dR}{dt} &= \gamma I
+\end{aligned}
+\end{equation}
+
+where $\beta_{eff}(t)$ is modulated by our dual-metric response function:
+
+\begin{equation}
+\beta_{eff}(t) = \beta_0 \cdot \exp\left(-\alpha_1\frac{I(t)}{N} - \alpha_2\Delta I_5(t)\right)
+\end{equation}
+
+The exponential form ensures smooth, continuous behavioral adaptation while maintaining mathematical tractability \cite{wang2015coupled}. Parameters $\alpha_1$ and $\alpha_2$ control the relative strength of response to prevalence and growth rates, respectively.
+
+To compute $\Delta I_5(t)$, we maintain a rolling buffer of infection counts and calculate:
+
+\begin{equation}
+\Delta I_5(t) = \max\left(0, \frac{I(t) - I(t-5)}{I(t-5)}\right)
+\end{equation}
+
+The max operator prevents negative growth rates from increasing transmission, following evidence that behavioral relaxation occurs more gradually than initial response \cite{funk2009spread}.
+
+We solve this system numerically using a fourth-order Runge-Kutta method with step size $h=0.1$ days. Initial conditions are set to:
+
+\begin{equation}
+\begin{aligned}
+S(0) &= N - E(0) - I(0) - R(0) \
+E(0) &= E_0 \
+I(0) &= I_0 \
+R(0) &= 0
+\end{aligned}
+\end{equation}
+
+where $E_0$ and $I_0$ represent initial exposed and infectious populations.
+
+Parameter values are calibrated based on existing literature \cite{anderson1992infectious}:
+\begin{itemize}
+    \item Baseline transmission rate: $\beta_0 = 0.3$ days$^{-1}$
+    \item Latency rate: $\sigma = 1/5.2$ days$^{-1}$
+    \item Recovery rate: $\gamma = 1/7$ days$^{-1}$
+    \item Behavioral response parameters: $\alpha_1 = 100$, $\alpha_2 = 2$
+\end{itemize}
+
+To evaluate model performance, we compare epidemic trajectories under three scenarios:
+\begin{enumerate}
+    \item Traditional SEIR (constant $\beta$)
+    \item Single-metric response (prevalence-only, $\alpha_2 = 0$)
+    \item Dual-metric response (full model)
+\end{enumerate}
+
+Each scenario is simulated over a 200-day period with population size $N = 10^6$ and initial conditions $E_0 = 100$, $I_0 = 20$. We track key epidemiological metrics including peak infection rates, timing of peak, and total outbreak size. \begin{equation}x^2 \mathcal{M} \tilde{\rho }^{\frac{\gamma +1}{2}}=\lambda \label{Mi ecuacion 8} \end{equation}\end{document}
