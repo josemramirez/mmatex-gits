@@ -19,7 +19,6 @@ This paper addresses these limitations by developing an enhanced SEIR framework 
 
 The proposed model builds upon existing work in behavioral epidemiology \cite{verelst2016behavioural} while introducing a more nuanced approach to capturing risk perception and response. By incorporating both static and dynamic risk metrics, our framework better reflects the multi-dimensional nature of individual decision-making during epidemics. This advancement is particularly relevant for public health planning and intervention design, as it provides a more realistic basis for predicting population-level behavioral changes and their subsequent impact on disease transmission.\section{Background}
 The study of epidemic dynamics through compartmental models has a rich history dating back to the seminal work of Kermack and McKendrick \cite{anderson1992infectious}. These models partition populations into distinct disease states and track their evolution through time using systems of ordinary differential equations. The SEIR model, in particular, has emerged as a fundamental framework for analyzing diseases with latent periods \cite{hethcote2000mathematics}.
-
 Behavioral epidemiology represents a significant advancement in this field, recognizing that disease transmission is not solely determined by biological factors but is substantially influenced by human behavior \cite{verelst2016behavioural}. Early attempts to incorporate behavior focused on prevalence-based responses, where contact rates were modeled as decreasing functions of current infection levels \cite{funk2010modelling}. These models demonstrated that behavioral changes could significantly alter epidemic trajectories, potentially reducing peak infection rates and extending epidemic duration.
 
 The integration of behavioral responses into epidemiological models has evolved through several stages:
@@ -55,7 +54,6 @@ This formulation assumes:
 \end{itemize}
 
 The dual-metric approach builds upon existing behavioral epidemiology frameworks while introducing a more sophisticated mechanism for modeling risk perception and response. This advancement allows for more realistic representation of human behavior during epidemics, particularly in capturing anticipatory responses to rapidly changing situations.\section{Method}\section{Method}
-
 Building upon the SEIR framework outlined in the Problem Setting, we develop a comprehensive dual-metric behavioral response function that captures the interplay between current infection levels and growth rates. The behavioral response function $\phi(I(t), r(t))$ is constructed as:
 
 \begin{equation}
@@ -94,4 +92,67 @@ The model is initialized with parameters derived from empirical studies \cite{he
 
 Numerical integration is performed using a fourth-order Runge-Kutta method with a fixed time step of 0.1 days. The growth rate calculation employs a discrete buffer of previous states, updated at each integration step.
 
-To assess the model's sensitivity to parameter choices, we conduct systematic variation of key parameters within biologically plausible ranges as defined by \cite{verelst2016behavioural}. This allows us to characterize the robustness of the dual-metric approach and identify parameter combinations that best capture observed epidemic patterns.\end{document}
+To assess the model's sensitivity to parameter choices, we conduct systematic variation of key parameters within biologically plausible ranges as defined by \cite{verelst2016behavioural}. This allows us to characterize the robustness of the dual-metric approach and identify parameter combinations that best capture observed epidemic patterns.\section{Experimental Setup}\section{Experimental Setup}
+To evaluate the effectiveness of our dual-metric behavioral response model, we implement the system using Python 3.8 with NumPy for numerical computations and SciPy for differential equation solving. The simulation framework is structured as follows:
+
+\subsection{Population Parameters}
+We consider a synthetic population of N = 100 000 individuals with initial conditions:
+\begin{itemize}
+\item S(0) = 99 990
+\item E(0) = 0
+\item I(0) = 10
+\item R(0) = 0
+\end{itemize}
+
+\subsection{Numerical Implementation}
+The system of differential equations is solved using SciPy's \texttt{solve\_ivp} function with the RK45 method (Runge-Kutta 4(5)) and the following specifications:
+\begin{itemize}
+\item Time span: 0 to 200 days
+\item Relative tolerance: 1e-6
+\item Absolute tolerance: 1e-8
+\item Maximum step size: 0.1 days
+\end{itemize}
+
+\subsection{Parameter Space Exploration}
+Following \cite{funk2010modelling}, we explore the parameter space through a grid search over:
+\begin{itemize}
+\item $\phi_{max} \in \{0.4, 0.6, 0.8\}$
+\item $K_I \in \{0.005N, 0.01N, 0.02N\}$
+\item $K_r \in \{0.5, 1.0, 1.5\}$
+\end{itemize}
+
+\subsection{Comparative Models}
+We implement three variants for comparison:
+\begin{enumerate}
+\item Base SEIR model without behavioral response
+\item Single-metric model using only infection levels
+\item Proposed dual-metric model
+\end{enumerate}
+
+\subsection{Evaluation Metrics}
+Model performance is assessed using metrics derived from \cite{anderson1992infectious}:
+\begin{itemize}
+\item Peak infection rate ($I_{max}/N$)
+\item Time to peak infection ($t_{peak}$)
+\item Final epidemic size ($R(\infty)/N$)
+\item Epidemic duration (time until $I(t) < 1$)
+\end{itemize}
+
+\subsection{Sensitivity Analysis}
+We conduct local sensitivity analysis by varying each parameter by pm10\% from baseline values, following methods described in \cite{hethcote2000mathematics}. The sensitivity coefficients are computed as:
+
+\begin{equation}
+S_p = \frac{\partial \log(I_{max})}{\partial \log(p)}
+\end{equation}
+
+where $p$ represents each model parameter.
+
+\subsection{Data Storage and Processing}
+Simulation results are stored in NumPy arrays with the following structure:
+\begin{itemize}
+\item Time series data: (t, S, E, I, R) arrays
+\item Growth rate history: 5-day rolling buffer
+\item Parameter combinations and corresponding outcomes
+\end{itemize}
+
+The implementation maintains computational efficiency while ensuring numerical stability and accurate representation of the behavioral response dynamics.\end{document}
