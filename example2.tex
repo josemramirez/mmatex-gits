@@ -57,43 +57,4 @@ This formulation assumes:
 
 The dual-metric approach builds upon existing behavioral epidemiology frameworks while introducing a more sophisticated mechanism for modeling risk perception and response. This advancement allows for more realistic representation of human behavior during epidemics, particularly in capturing anticipatory responses to rapidly changing situations.\section{Method}\section{Method}
 
-Building upon the SEIR framework outlined in the Problem Setting, we develop a comprehensive dual-metric behavioral response function that captures the interplay between current infection levels and growth rates. The behavioral response function $\phi(I(t), r(t))$ is constructed as:
-
-
-\begin{equation}
-\phi(I(t), r(t)) = \phi_{max} \cdot \left(\frac{I(t)}{I(t) + K_I}\right) \cdot \left(\frac{r(t)}{r(t) + K_r}\right)
-\end{equation}
-
-where $\phi_{max}$ represents the maximum possible behavioral response, $K_I$ and $K_r$ are half-saturation constants for infection levels and growth rates, respectively. This formulation, inspired by \citet{funk2010modelling}, ensures a continuous response that saturates as either metric increases.
-
-The complete system of differential equations governing the SEIR dynamics with behavioral response is:
-
-\begin{align}
-\frac{dS}{dt} &= -\beta(t)SI/N \
-\frac{dE}{dt} &= \beta(t)SI/N - \sigma E \
-\frac{dI}{dt} &= \sigma E - \gamma I \
-\frac{dR}{dt} &= \gamma I
-\end{align}
-
-where $\sigma$ represents the rate of progression from exposed to infectious state, and $\gamma$ is the recovery rate, following \citet{anderson1992infectious}.
-
-To implement the growth rate calculation, we maintain a rolling 5-day history of infection levels using a discrete-time approximation:
-
-\begin{equation}
-r(t) = \max\left(0, \frac{I(t) - I(t-5)}{\max(I(t-5), \epsilon)}\right)
-\end{equation}
-
-where $\epsilon$ is a small positive constant to prevent division by zero during the early stages of the epidemic.
-
-The model is initialized with parameters derived from empirical studies \cite{hethcote2000mathematics}:
-\begin{itemize}
-\item Base transmission rate $\beta_0 = 0.3$
-\item Progression rate $\sigma = 1/5.2$ days$^{-1}$
-\item Recovery rate $\gamma = 1/7$ days$^{-1}$
-\item Half-saturation constants $K_I = 0.01N$ and $K_r = 1.0$
-\item Maximum behavioral response $\phi_{max} = 0.8$
-\end{itemize}
-
-Numerical integration is performed using a fourth-order Runge-Kutta method with a fixed time step of 0.1 days. The growth rate calculation employs a discrete buffer of previous states, updated at each integration step.
-
-To assess the model's sensitivity to parameter choices, we conduct systematic variation of key parameters within biologically plausible ranges as defined by \citet{verelst2016behavioural}. This allows us to characterize the robustness of the dual-metric approach and identify parameter combinations that best capture observed epidemic patterns.\end{document}
+Building upon the SEIR framework outlined in the Problem Setting, we develop a comprehensive dual-metric behavioral response function that captures the interplay between current infection levels and growth rates. The behavioral response function $\phi(I(t), r(t))$ is constructed as:\end{document}
