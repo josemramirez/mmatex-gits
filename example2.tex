@@ -159,72 +159,7 @@ Simulation results are stored in NumPy arrays with the following structure:
 The implementation maintains computational efficiency while ensuring numerical stability and accurate representation of the behavioral response dynamics.\section{Results}
 Our numerical simulations demonstrate the significant impact of incorporating dual-metric behavioral response in epidemic modeling. We present results across three key dimensions: comparison with baseline models, parameter sensitivity analysis, and investigation of specific behavioral response components.
 
-\subsection{Comparison with Baseline Models}
-
-The dual-metric model shows distinct epidemic trajectories compared to both the basic SEIR model and single-metric behavioral models. Key findings include:
-
-\begin{table}[h]
-\caption{Comparison of Model Performance Metrics}
-\begin{tabular}{lccc}
-\hline
-Metric & Base SEIR & Single-Metric & Dual-Metric \
-\hline
-Peak Infection Rate & 0.147 & 0.092 & 0.078 \
-Time to Peak (days) & 42.3 & 56.7 & 63.5 \
-Final Epidemic Size & 0.83 & 0.76 & 0.71 \
-Epidemic Duration (days) & 127.4 & 156.2 & 168.9 \
-\hline
-\end{tabular}
-\end{table}
-
-The dual-metric approach consistently produces lower peak infection rates (21.7% reduction compared to single-metric) while extending the epidemic duration. This aligns with findings from \cite{verelst2016behavioural} regarding the impact of behavioral changes on epidemic timing.
-
-\subsection{Parameter Sensitivity Analysis}
-
-Sensitivity analysis reveals the relative importance of different model components:
-
-\begin{itemize}
-\item Maximum behavioral response ($\phi_{max}$) shows the strongest impact on peak infection rates (sensitivity coefficient $S_{\phi} = -0.82$)
-\item Growth rate half-saturation constant ($K_r$) demonstrates moderate influence ($S_{Kr} = 0.45$)
-\item Infection level half-saturation constant ($K_I$) shows the least sensitivity ($S_{KI} = 0.31$)
-\end{itemize}
-
-\subsection{Behavioral Response Components}
-
-Analysis of individual behavioral response components reveals:
-
-\begin{figure}[h]
-\caption{Contribution of Individual Response Components}
-\begin{tabular}{cc}
-Infection Level Response & Growth Rate Response \
-$\phi_I = 0.63 \pm 0.08$ & $\phi_r = 0.41 \pm 0.06$ \
-\end{tabular}
-\end{figure}
-
-The infection level component typically contributes more strongly to the overall behavioral response, but growth rate becomes increasingly important during rapid disease spread phases.
-
-\subsection{Model Limitations}
-
-Several important limitations of our approach were identified:
-
-\begin{enumerate}
-\item Assumption of homogeneous population response may not reflect real-world variation in risk perception
-\item Five-day growth rate window is somewhat arbitrary and may not capture all relevant temporal patterns
-\item Model does not account for potential behavioral fatigue or adaptation over time
-\item Perfect information assumption about infection levels may be unrealistic in practice
-\end{enumerate}
-
-\subsection{Robustness Analysis}
-
-Testing across different parameter combinations reveals consistent performance advantages of the dual-metric approach:
-
-\begin{itemize}
-\item Peak infection rate reduction remains significant (15-25%) across all tested parameter combinations
-\item Epidemic duration extension is consistent but varies in magnitude (20-35% increase)
-\item Final epidemic size reduction shows moderate variability (8-15% reduction)
-\end{itemize}
-
-These results demonstrate the robust advantages of incorporating dual-metric behavioral response, while highlighting areas where further refinement may be beneficial.\section{Conclusion}
+\section{Conclusion}
 This study presents a significant advancement in behavioral epidemiology by introducing a dual-metric approach to modeling population response during epidemics. By simultaneously incorporating both current infection levels and growth rates, our model addresses key limitations of traditional threshold-based approaches identified by \cite{funk2010modelling} and provides a more nuanced representation of behavioral adaptation patterns.
 
 Our results demonstrate that accounting for multiple risk perception metrics leads to materially different predictions of epidemic trajectories. The dual-metric model consistently predicts lower peak infection rates and final epidemic sizes compared to both basic SEIR and single-metric behavioral models, aligning with empirical observations noted in \cite{wang2020impact}. These findings suggest that previous models may have systematically overestimated the severity of epidemic peaks by failing to capture anticipatory behavioral changes triggered by rapid disease spread.
