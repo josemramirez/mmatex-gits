@@ -24,7 +24,6 @@ Behavioral epidemiology represents a significant advancement in this field, reco
 
 The integration of behavioral responses into epidemiological models has evolved through several stages:
 
-
 \begin{enumerate}
 \item Simple threshold models where behavior changes discretely at predetermined infection levels
 \item Continuous response functions based on current prevalence
@@ -58,6 +57,7 @@ This formulation assumes:
 The dual-metric approach builds upon existing behavioral epidemiology frameworks while introducing a more sophisticated mechanism for modeling risk perception and response. This advancement allows for more realistic representation of human behavior during epidemics, particularly in capturing anticipatory responses to rapidly changing situations.\section{Method}\section{Method}
 
 Building upon the SEIR framework outlined in the Problem Setting, we develop a comprehensive dual-metric behavioral response function that captures the interplay between current infection levels and growth rates. The behavioral response function $\phi(I(t), r(t))$ is constructed as:
+
 \begin{equation}
 \phi(I(t), r(t)) = \phi_{max} \cdot \left(\frac{I(t)}{I(t) + K_I}\right) \cdot \left(\frac{r(t)}{r(t) + K_r}\right)
 \end{equation}
@@ -94,4 +94,4 @@ The model is initialized with parameters derived from empirical studies \cite{he
 
 Numerical integration is performed using a fourth-order Runge-Kutta method with a fixed time step of 0.1 days. The growth rate calculation employs a discrete buffer of previous states, updated at each integration step.
 
-To assess the models sensitivity to parameter choices, we conduct systematic variation of key parameters within biologically plausible ranges as defined by \cite{verelst2016behavioural}. This allows us to characterize the robustness of the dual-metric approach and identify parameter combinations that best capture observed epidemic patterns.\end{document}
+To assess the model's sensitivity to parameter choices, we conduct systematic variation of key parameters within biologically plausible ranges as defined by \cite{verelst2016behavioural}. This allows us to characterize the robustness of the dual-metric approach and identify parameter combinations that best capture observed epidemic patterns.\end{document}
