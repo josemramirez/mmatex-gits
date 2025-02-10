@@ -26,4 +26,42 @@ This paper is organized as follows: Section 2 presents the theoretical framework
 The study of Hawking radiation builds upon several fundamental concepts in theoretical physics, including quantum field theory in curved spacetime, black hole thermodynamics, and geodesic behavior in strong gravitational fields. The seminal work of Bekenstein \cite{bekenstein1973black} established the connection between black hole surface area and entropy, laying the groundwork for understanding black holes as thermodynamic systems. This conceptual framework was essential for Hawking's subsequent discovery of quantum radiation from black holes \cite{hawking1974black}.
 
 The mathematical description of particle creation in curved spacetime, developed by Parker \cite{parker1969time}, provided the quantum field theoretical tools necessary for analyzing vacuum fluctuations near black hole horizons. These foundations were further extended by Unruh's work \cite{unruh1976notes} on the equivalence between accelerated observers and thermal radiation, offering crucial insights into the physical mechanism of Hawking radiation.
-\end{document}
+
+\subsection{Problem Setting}
+Consider a Schwarzschild black hole of mass $M$ with metric in Eddington-Finkelstein coordinates:
+
+\begin{equation}
+ds^2 = -(1-\frac{2GM}{r})dv^2 + 2dvdr + r^2(d\theta^2 + \sin^2\theta d\phi^2)
+\end{equation}
+
+where $v$ is the advanced time coordinate, $r$ is the radial coordinate, and $(\theta, \phi)$ are angular coordinates. The event horizon is located at $r = 2GM$. In these coordinates, the null geodesic equations take the form:
+
+\begin{equation}
+\frac{d^2x^{\mu}}{d\lambda^2} + \Gamma^{\mu}_{\alpha\beta}\frac{dx^{\alpha}}{d\lambda}\frac{dx^{\beta}}{d\lambda} = 0
+\end{equation}
+
+where $\lambda$ is an affine parameter and $\Gamma^{\mu}_{\alpha\beta}$ are the Christoffel symbols.
+
+The quantum vacuum state near the horizon is described by a scalar field $\phi$ satisfying the Klein-Gordon equation:
+
+\begin{equation}
+\Box\phi = \frac{1}{\sqrt{-g}\partial_{\mu}(\sqrt{-g}g^{\mu\nu}\partial_{\nu}\phi) = 0
+\end{equation}
+
+Our analysis focuses on the behavior of null geodesic pairs near the horizon, where one geodesic represents an ingoing virtual particle and the other represents its outgoing partner. The separation vector $\xi^{\mu}$ between these geodesics evolves according to the geodesic deviation equation:
+
+\begin{equation}
+\frac{D^2\xi^{\mu}{D\lambda^2} = R^{\mu}_{\nu\rho\sigma}\frac{dx^{\nu}}{d\lambda}\xi^{\rho}\frac{dx^{\sigma}}{d\lambda}
+\end{equation}
+
+where $R^{\mu}_{\nu\rho\sigma}$ is the Riemann curvature tensor.
+
+Key assumptions in our approach include:
+\begin{itemize}
+\item The background spacetime is treated classically and fixed
+\item Quantum backreaction effects are neglected
+\item Only spherically symmetric configurations are considered
+\item The scalar field is assumed to be minimally coupled to gravity
+\end{itemize}
+
+This framework allows us to track the evolution of virtual particle pairs and compute their separation probabilities, which directly relate to the Hawking radiation spectrum.\end{document}
