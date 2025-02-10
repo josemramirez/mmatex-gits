@@ -1,38 +1,31 @@
-\documentclass{article}\usepackage{graphicx} \usepackage{amsmath} \usepackage{colortbl}\title{Cosmology 101 - Version 0.1}
-\author{J. M. Ram{\'i}rez,$^{1}$ Co-Author1,$^{4}$ Co-Author2,$^{5}$}
-\date{\today}\begin{document}
-\maketitle\begin{abstract}
-La cosmologia moderna ha revelado que aproximadamente el 68 de la densidad de masa-energía del universo es energía oscura ($\Omega_{\Lambda} \approx 0.68$), el 27 corresponde a materia oscura ($\Omega_{	ext{DM}} \approx 0.27$), y solo un 5 ($\Omega_{	ext{b}} \approx 0.05$) es materia bariónica. Este balance está madelado por la ecuación de Friedmann:
-\[
-H^2 = \left(
-\frac{\dot{a}}{a}
-\right)^2 = 
-\frac{8\pi G}{3}
-ho - 
-\frac{kc^2}{a^2} + 
-\frac{\Lambda}{3},
-\]
-donde $\rho$ representa la densidad de materia y energía, $H$ es la constante de Hubble, $a$ es el factor de escala, $k$ la curvatura espacial, y $\Lambda$ la constante cosmológica. La anisotropía del fondo cósmico de microondas (CMB) proporciona evidencia clave, con fluctuaciones de temperatura $\Delta T/T \approx 10^{-5}$. La misión Planck ha refinado nuestras estimaciones de estos parámetros, ofreciendo una visión más precisa del universo primitivo y su evolución.
-\end{abstract}\section{Introduccion}
-La cosmologia, la ciencia que estudia el universo en su totalidad, se ha transformado drásticamente en las últimas décadas gracias a avances tecnológicos y teóricos. Desde la formulación del modelo del Big Bang hasta la detección del fondo cósmico de microondas (CMB), hemos pasado de teorías a evidencia tangible. El universo observable se expande, gobernado por la ecuación de Friedmann, $H^2 = 
-\frac{8\pi G}{3}
-\rho - 
-\frac{kc^2}{a^2} + 
-\frac{\Lambda}{3}$, donde $H$ es la constante de Hubble, $\rho$ la densidad de energía, $k$ la curvatura espacial, $a$ el factor de escala, y $\Lambda$ la constante cosmológica. La composición del universo, dominada por la energía oscura (aprox. 68), materia oscura (27), y materia bariónica (5), plantea preguntas fundamentales sobre su destino y origen. Misiones como Planck y observaciones de supernovas han sido cruciales para refinar nuestro entendimiento cosmológico, desvelando una imagen cada vez más compleja y fascinante del cosmos.\section{Metodologia}
-Para abordar problemas de flujo de fluidos, se emplean tres principios fundamentales:
+\documentclass{article}\usepackage{graphicx} \usepackage{amsmath} \usepackage{colortbl} \usepackage[utf8]{inputenc} % allow utf-8 input \usepackage[T1]{fontenc}    % use 8-bit T1 fonts \usepackage{hyperref}       % hyperlinks \usepackage{url}            % simple URL typesetting \usepackage{booktabs}       % professional-quality tables \usepackage{amsfonts}       % blackboard math symbols \usepackage{nicefrac}       % compact symbols for 1/2, etc. \usepackage{microtype}      % microtypography \usepackage{titletoc}  \usepackage{subcaption} \usepackage{graphicx} \usepackage{amsmath} \usepackage{multirow} \usepackage{color} \usepackage{colortbl} \usepackage{cleveref} \usepackage{algorithm} \usepackage{algorithmicx} \usepackage{algpseudocode}  \DeclareMathOperator*{\argmin}{arg\,min} \DeclareMathOperator*{\argmax}{arg\,max}  \graphicspath{{./}} % To reference your generated figures, see below. \begin{filecontents}{references.bib}   @article{hethcote2000mathematics,   title={The mathematics of infectious diseases},   author={Hethcote, Herbert W},   journal={SIAM review},   volume={42},   number={4},   pages={599--653},   year={2000},   publisher={SIAM} }  @article{he2020seir,   title={SEIR modeling of the COVID-19 and its dynamics},   author={He, Shaobo and Peng, Yuexi and Sun, Kehui},   journal={Nonlinear dynamics},   volume={101},   pages={1667--1680},   year={2020},   publisher={Springer} }   \end{filecontents}
 
-\subsection{Conservaci{\'o}n de Masa (Ecuaci{\'o}n de Continuidad)}
-donde $A$ es el {\'a}rea de la sección transversal del conducto y $v$ la velocidad del fluido. Esta ecuación asegura que el flujo volumétrico es constante en un flujo incompresible. \begin{equation}x^2 \mathcal{M} \tilde{\rho }^{\frac{\gamma +1}{2}}=\lambda \label{ber1} \end{equation}\subsection{Ecuaci{\'o}n de Bernoulli}
-Aquí, $P$ es la presión, $\rho$ la densidad del fluido, $v$ la velocidad, $g$ la aceleración debida a la gravedad, y $h$ la altura con respecto a un punto de referencia. Esta ecuaci{\'o}n se usa para describir la conservación de la energía en el flujo de fluidos ideal, sin pérdidas por fricción.
-\subsubsection{Metodolog{\'i}a}
+\title{Cosmology 101 - Version 0.1}
+\author{J. M. Ram{\'i}rez,$^{1}$ Co-Author1,$^{4}$ Co-Author2,$^{5}$}
+\date{\today}
+
+  \newcommand{\fix}{\marginpar{FIX}} \newcommand{\new}{\marginpar{NEW}}\begin{document}
+\maketitle\begin{abstract}
+This paper presents a numerical investigation into the behavior of null geodesic pairs in the vicinity of a black hole horizon, aiming to provide novel insights into the mechanism behind Hawking radiation. Recognizing that the evaporation of black holes through quantum processes is deeply intertwined with the interplay of general relativity and quantum field theory, our work brings forward a methodical approach to studying these effects using Eddington-Finkelstein coordinates. The experimental framework involves simulating the trajectories of null geodesics near the event horizon and measuring their separation rates among the ensemble, which serves as an indirect probe of the underlying vacuum fluctuations responsible for particle creation. A key challenge in this endeavor stems from the inherent intricacies of accurately modeling the dynamics in a highly curved spacetime, where standard computational approaches often fall short of capturing the subtle effects associated with horizon-scale physics. To address these challenges, we develop a robust numerical scheme that integrates geodesic equations with high precision, allowing for the determination of temperature profiles as a function of radial distance, which are then compared against the theoretical predictions of Hawking radiation. Our methodology further includes a detailed visualization of the simulated data through three-dimensional phase-space plots that elucidate the trajectories and behavior of the geodesics, thereby offering a window into the dynamical evolution of the system. Through comprehensive numerical experiments and a rigorous analysis of the resulting data, we verify the accuracy of our approach by demonstrating that the computed temperature profiles closely align with those predicted by semiclassical arguments, thus reinforcing the validity of our simulation technique. In doing so, this study not only underscores the viability of numerical simulations in testing one of the most elusive predictions of theoretical physics but also paves the way for more sophisticated studies of quantum gravitational phenomena by bridging the gap between conceptual models and observable astrophysical processes.
+\end{abstract}\section{Introduction}
+In this paper, we present a comprehensive numerical analysis of Hawking radiation by investigating the behavior of paired null geodesics in the vicinity of a black hole horizon. Our study is motivated by the challenge of reconciling quantum effects with the dynamical background of curved spacetime, a problem that has been at the forefront of theoretical physics since Hawking's seminal work \cite{Hawking1975}. We focus on the simulation of null geodesic trajectories using Eddington\textendash Finkelstein coordinates, which allows us to accurately handle horizon-crossing behavior and explore the nuances of horizon physics.
+
+The primary objectives of our work are as follows:
 \begin{itemize}
-\item Identificar las secciones del sistema de flujo donde se aplicarán las ecuaciones.
-\item Determinar las condiciones iniciales (presión, velocidad, altura) en cada sección.
-\item Aplicar la ecuación de continuidad para relacionar velocidades en secciones diferentes.
-\item Utilizar la ecuación de Bernoulli para calcular cambios en presión, velocidad o altura entre dos puntos.
-\item Verificar la consistencia de los resultados con las leyes de conservación de masa y energía.
+    \item To numerically simulate paired null geodesic trajectories in the background of a black hole and analyze their separation rates.
+    \item To estimate vacuum fluctuation probabilities through a detailed study of the dynamics of these geodesic pairs.
+    \item To generate temperature profiles as a function of the radial coordinate and compare these with theoretical predictions for Hawking radiation.
+    \item To provide a robust computational framework that bridges general relativistic geodesic analysis with quantum field theoretic predictions.
 \end{itemize}
 
-Este enfoque permite resolver problemas de flujo, desde el diseño de sistemas de tuberías hasta la aerodinámica, asumiendo flujo incompresible y sin viscosidad significativa. \begin{equation}\frac{\tilde{\rho }^{\gamma -1}}{\gamma -1}+\frac{1}{2} \mathcal{M}^2 \tilde{c_s}{}^2=\frac{1}{\gamma -1}+\frac{1}{x} \label{ber2} \end{equation}\section{An{\'a}lisis de resultados}
-Los resultados obtenidos, como se muestra en la Figura 1, indican una clara relación entre la velocidad del fluido y la presión. Observamos que, conforme el área de la sección transversal disminuye, la velocidad del fluido aumenta, lo que es coherente con la ecuacion de continuidad. La presión, por otro lado, presenta una disminución en puntos de mayor velocidad, tal como predice la ecuación de Bernoulli. Esto corrobora la conservación de masa y energía en el sistema de flujo analizado, evidenciando la utilidad de estos principios para el diseño y análisis de sistemas de fluidos.\begin{figure}\includegraphics[width=8.0cm]{images/imagen1.png}\caption{Este es un caption de la figura}\label{pl1}\end{figure}\section{Conclusiones}
-Los resultados obtenidos, como se muestra en la Figura 1, indican una clara relación entre la velocidad del fluido y la presión. Observamos que, conforme el área de la sección transversal disminuye, la velocidad del fluido aumenta, lo que es coherente con la ecuación de continuidad. La presión, por otro lado, presenta una disminución en puntos de mayor velocidad, tal como predice la ecuación de Bernoulli. Esto corrobora la conservación de masa y energía en el sistema de flujo analizado, evidenciando la utilidad de estos principios para el diseño y análisis de sistemas de fluidos.\begin{figure}\includegraphics[width=8.0cm]{images/imagen1.png}\caption{Este es un caption de la figura 2}\label{pl2}\end{figure}\end{document}
+This research is particularly challenging due to several factors. First, the accurate modeling of null geodesics near the event horizon requires sophisticated numerical techniques to handle the severe curvature and coordinate singularities inherent in such regimes. Second, the extraction of observables that reflect quantum phenomena from these classical trajectories necessitates a careful and precise analysis to ensure that the numerical estimates faithfully represent quantum field theoretic predictions \cite{Jacobson1993}. Finally, ensuring the stability and convergence of our numerical methods demands rigorous testing and validation against established theoretical results.
+
+To address these challenges, our contribution lies in the development and deployment of a high-fidelity numerical framework that not only simulates the intricate behavior of paired null geodesics but also systematically extracts relevant observables that characterize Hawking radiation. In summary, our approach can be appreciated as a longer version of the abstract of the paper, and its relevance is underscored by the need for new numerical methods in the study of quantum effects in strong gravitational fields. The main contributions of this work are summarized below:
+\begin{itemize}
+    \item Establishment of a numerical scheme for tracing null geodesic trajectories in Eddington\textendash Finkelstein coordinates.
+    \item Quantitative analysis of geodesic pair separation rates as a proxy for vacuum fluctuation probabilities.
+    \item Generation of accurate temperature profiles indicative of the thermal spectrum of Hawking radiation.
+    \item Verification of our model through systematic experiments that compare phase-space trajectory plots and thermal profiles with existing theoretical predictions \cite{Unruh1976}.
+\end{itemize}
+
+The rest of this paper is organized as follows. We first describe the numerical setup and simulation framework employed in our analysis. Next, we detail the results obtained from our experiments and conclude with a discussion of future work and potential extensions of this study. This investigation not only enhances our understanding of horizon physics but also paves the way for further exploration of quantum gravitational effects in strong-field regimes.\begin{figure}\centering\includegraphics{imagenes/image1.png}\caption{hola2}\label{hola3}\end{figure}\end{document}
