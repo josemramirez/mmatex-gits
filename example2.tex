@@ -127,7 +127,12 @@ In this section, we present the numerical outcomes of our implementation, based 
 \subsection{Phase--Space Trajectory Matching}
 Figure~\ref{fig:trajectories} shows the phase--space trajectories obtained from the numerical integration of the geodesic equations. The root--mean--square error (RMSE) computed between the numerical trajectories and the approximate analytical solution is $0.012 \pm 0.003$, which confirms a high level of accuracy over the simulation domain. The error distribution, computed over $50$ independent runs, yielded a $95\%$ confidence interval within the reported bounds.
 
-
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.75\textwidth]{phase_space_trajectories.pdf}
+    \caption{Phase--space trajectories of null geodesic pairs. The numerical integration (solid lines) shows excellent agreement with the analytical approximation (dashed lines). Error bars indicate the RMSE variation measured over $50$ independent simulation runs.}
+    \label{fig:trajectories}
+\end{figure}
 
 \subsection{Temperature Profile Analysis}
 The separation rate $\left| \frac{d\delta}{dr} \right|$ was extracted from the numerical data and mapped onto a temperature profile according to
@@ -136,7 +141,12 @@ T(r) \propto \left| \frac{d\delta}{dr} \right|.
 \end{equation}
 Figure~\ref{fig:temperature} displays the resulting temperature profile $T(r)$ as a function of the radial coordinate $r$. A comparison with the theoretical thermal spectrum derived in \cite{Unruh1976} shows a percentage error of less than $5\%$ for $r \geq 3$, while slight deviations (up to $8\%$) are seen in the range $2.1 \leq r < 3$, which is attributable to the extreme curvature effects near the horizon.
 
-
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.75\textwidth]{temperature_profile.pdf}
+    \caption{Temperature profile $T(r)$ derived from the measured separation rate $\left| \frac{d\delta}{dr} \right|$. The theoretical expectation from \cite{Unruh1976} is overlaid (dashed line) for comparison.}
+    \label{fig:temperature}
+\end{figure}
 
 \subsection{Ablation Studies}
 To assess the impact of various components of our method, several ablation studies were conducted. First, we varied the adaptive step--size tolerance $\epsilon$ from $10^{-4}$ to $10^{-7}$. It was observed that a tolerance of $\epsilon \leq 10^{-6}$ was critical for capturing the near--horizon dynamics accurately; simulations with $\epsilon = 10^{-4}$ resulted in deviations up to $15\%$ in both phase--space trajectories and temperature profiles. Second, we examined the sensitivity of the results to the initial separation $\delta_{0}$ by varying it in the range $10^{-4}$ to $10^{-2}$. Although the overall temperature profile maintained its qualitative behavior, the scaling factor in \(T(r)\) was found to be dependent on $\delta_{0}$, emphasizing the need for a proper calibration of this parameter.
@@ -144,19 +154,7 @@ To assess the impact of various components of our method, several ablation studi
 \subsection{Comparison with Baselines}
 Our framework was compared with a baseline implementation that utilized a fixed step--size Runge--Kutta integration scheme without adaptive controls. The baseline exhibited an average RMSE that was $35\%$ higher and a corresponding increase in the error of the temperature profile estimation by approximately $20\%$. These comparisons, summarized in Table~\ref{tab:comparison}, statistically validate the robustness of our adaptive integration approach.
 
-\begin{table}[htbp]
-    \centering
-    \begin{tabular}{lccc}
-    \hline
-    Method & RMSE & Temperature Error (\%) & 95\% CI \
-    \hline
-    Fixed Step--Size & 0.016 & 12.5 & [11.8, 13.2] \
-    Adaptive Step--Size & 0.012 & 5.0 & [4.2, 5.8] \
-    \hline
-    \end{tabular}
-    \caption{Comparison of the baseline fixed step--size method and the adaptive step--size method in terms of RMSE and temperature profile error.}
-    \label{tab:comparison}
-\end{table}
+
 
 \subsection{Limitations}
 While the numerical framework demonstrates significant improvement over traditional methods, it is important to note certain limitations. First, the extraction of the temperature profile assumes a direct proportionality between $T(r)$ and $\left| \frac{d\delta}{dr} \right|$, which may not capture all quantum effects in strong curvature regimes. Second, the calibration of hyperparameters such as $\delta_{0}$ and $\epsilon$ is based on empirical tuning, and further work is needed to establish a first--principles determination of these parameters. Lastly, near--horizon dynamics introduce complexity that may require higher--order numerical schemes to fully resolve, particularly when extending the method to dynamical spacetimes.
