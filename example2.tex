@@ -1,12 +1,32 @@
 \documentclass{article}
+\usepackage{graphicx}
+ \usepackage{amsmath}
+ \usepackage[utf8]{inputenc}
+ \usepackage[T1]{fontenc}
+ \usepackage{hyperref}
+ \usepackage{url}
+ \usepackage{booktabs}
+ \usepackage{amsfonts}
+ \usepackage{nicefrac}
+ \usepackage{microtype}
+ \usepackage{titletoc}
+ \usepackage{subcaption}
+  \usepackage{multirow}
+ \usepackage{color}
+ \usepackage{colortbl}
+ \usepackage{cleveref}
+ \usepackage{algorithm}
+ \usepackage{algorithmicx}
+ \usepackage{algpseudocode}
+ \DeclareMathOperator*{\argmin}{arg\,min}
+ \DeclareMathOperator*{\argmax}{arg\,max}
 
- \usepackage{graphicx}  \usepackage{amsmath}  \usepackage[utf8]{inputenc} \usepackage[T1]{fontenc} \usepackage{hyperref} \usepackage{url} \usepackage{booktabs}  \usepackage{amsfonts} \usepackage{nicefrac} \usepackage{microtype} \usepackage{titletoc}   \usepackage{subcaption}  \usepackage{multirow}  \usepackage{color}  \usepackage{colortbl}  \usepackage{cleveref}  \usepackage{algorithm}  \usepackage{algorithmicx}  \usepackage{algpseudocode}   \DeclareMathOperator*{\argmin}{arg\,min}  \DeclareMathOperator*{\argmax}{arg\,max}  \begin{filecontents}{references.bib}    @article{hethcote2000mathematics,   title={The mathematics of infectious diseases},   author={Hethcote, Herbert W},   journal={SIAM review},   volume={42},   number={4},   pages={599--653},   year={2000},   publisher={SIAM} }   @article{he2020seir,   title={SEIR modeling of the COVID-19 and its dynamics},   author={He, Shaobo and Peng, Yuexi and Sun, Kehui},   journal={Nonlinear dynamics},   volume={101},   pages={1667--1680},   year={2020},   publisher={Springer} }   \end{filecontents}
 
 \title{Cosmology 101 - Version 0.1}
 \author{J. M. Ram{\'i}rez,$^{1}$ Co-Author1,$^{4}$ Co-Author2,$^{5}$}
 \date{\today}
-
-  \newcommand{\fix}{\marginpar{FIX}} \newcommand{\new}{\marginpar{NEW}}\begin{document}
+\newcommand{\fix}{\marginpar{FIX}}
+\newcommand{\new}{\marginpar{NEW}}\begin{document}
 \maketitle\begin{abstract}
 This paper presents a numerical investigation into the behavior of null geodesic pairs in the vicinity of a black hole horizon, aiming to provide novel insights into the mechanism behind Hawking radiation. Recognizing that the evaporation of black holes through quantum processes is deeply intertwined with the interplay of general relativity and quantum field theory, our work brings forward a methodical approach to studying these effects using Eddington-Finkelstein coordinates. The experimental framework involves simulating the trajectories of null geodesics near the event horizon and measuring their separation rates among the ensemble, which serves as an indirect probe of the underlying vacuum fluctuations responsible for particle creation. A key challenge in this endeavor stems from the inherent intricacies of accurately modeling the dynamics in a highly curved spacetime, where standard computational approaches often fall short of capturing the subtle effects associated with horizon-scale physics. To address these challenges, we develop a robust numerical scheme that integrates geodesic equations with high precision, allowing for the determination of temperature profiles as a function of radial distance, which are then compared against the theoretical predictions of Hawking radiation. Our methodology further includes a detailed visualization of the simulated data through three-dimensional phase-space plots that elucidate the trajectories and behavior of the geodesics, thereby offering a window into the dynamical evolution of the system. Through comprehensive numerical experiments and a rigorous analysis of the resulting data, we verify the accuracy of our approach by demonstrating that the computed temperature profiles closely align with those predicted by semiclassical arguments, thus reinforcing the validity of our simulation technique. In doing so, this study not only underscores the viability of numerical simulations in testing one of the most elusive predictions of theoretical physics but also paves the way for more sophisticated studies of quantum gravitational phenomena by bridging the gap between conceptual models and observable astrophysical processes.
 \end{abstract}\section{Introduction}
