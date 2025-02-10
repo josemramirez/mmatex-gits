@@ -143,7 +143,6 @@ To assess the impact of various components of our method, several ablation studi
 Our framework was compared with a baseline implementation that utilized a fixed step--size Runge--Kutta integration scheme without adaptive controls. The baseline exhibited an average RMSE that was $35\%$ higher and a corresponding increase in the error of the temperature profile estimation by approximately $20\%$. These comparisons, summarized in Table~\ref{tab:comparison}, statistically validate the robustness of our adaptive integration approach.
 
 
-
 \subsection{Limitations}
 While the numerical framework demonstrates significant improvement over traditional methods, it is important to note certain limitations. First, the extraction of the temperature profile assumes a direct proportionality between $T(r)$ and $\left| \frac{d\delta}{dr} \right|$, which may not capture all quantum effects in strong curvature regimes. Second, the calibration of hyperparameters such as $\delta_{0}$ and $\epsilon$ is based on empirical tuning, and further work is needed to establish a first--principles determination of these parameters. Lastly, near--horizon dynamics introduce complexity that may require higher--order numerical schemes to fully resolve, particularly when extending the method to dynamical spacetimes.
 
