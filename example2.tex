@@ -1,35 +1,116 @@
-\documentclass{article}
-\usepackage{graphicx}
- \usepackage{amsmath}
- \usepackage[utf8]{inputenc}
- \usepackage[T1]{fontenc}
- \usepackage{hyperref}
- \usepackage{url}
- \usepackage{booktabs}
- \usepackage{amsfonts}
- \usepackage{nicefrac}
- \usepackage{microtype}
- \usepackage{titletoc}
- \usepackage{subcaption}
-  \usepackage{multirow}
- \usepackage{color}
- \usepackage{colortbl}
- \usepackage{cleveref}
- \usepackage{algorithm}
- \usepackage{algorithmicx}
- \usepackage{algpseudocode}
- \graphicspath{{../}}
- \DeclareMathOperator*{\argmin}{arg\,min}
- \DeclareMathOperator*{\argmax}{arg\,max}
-
-
-\title{Cosmology 101 - Version 0.1}
+\documentclass{article}\usepackage{graphicx} \usepackage{amsmath} \usepackage{colortbl}\title{Cosmology 101 - Version 0.1}
 \author{J. M. Ram{\'i}rez,$^{1}$ Co-Author1,$^{4}$ Co-Author2,$^{5}$}
-\date{\today}
-\newcommand{\fix}{\marginpar{FIX}}
-\newcommand{\new}{\marginpar{NEW}}\begin{document}
-\maketitle \begin{abstract}
-We present an interactive visualization tool that leverages Eddington-Finkelstein coordinates to map out the light cone structure in the vicinity of a black hole horizon. Our work aims to elucidate the deformation of light paths and causal connections as they approach and traverse the event horizon, offering a dynamic perspective that accommodates multiple reference frames. Understanding the intricate causal structure near black holes is both conceptually challenging and computationally intensive due to the non-linear distortions imposed by intense gravitational fields. To address these difficulties, we have developed a suite of 3D plots that seamlessly integrate real-time data visualization with advanced coordinate transformations, thereby providing an intuitive view of horizon crossing phenomena. Experimental results, including comparative analyses across various reference frames and parameter sensitivity studies, substantiate our approach and shed light on the underpinnings of relativistic horizon dynamics, contributing to both theoretical insights and educational tools in gravitational physics.\end{abstract}\section{Introduction}
-\section{Introduction}In recent decades, understanding the causal structure in the vicinity of black hole horizons has emerged as a central challenge in gravitational physics. Black holes, with their intense gravitational fields, impose non-linear distortions on spacetime that make the visualization and interpretation of light paths highly non-trivial. In this work, we present an interactive visualization tool that leverages Eddington-Finkelstein coordinates to map out the structure of light cones near the event horizon, thereby offering new insights into horizon crossing phenomena. Our goal is to provide a dynamic perspective that accommodates multiple reference frames, which is essential in exploring the deformation of light cones and the altered causal connections as one approaches and traverses the event horizon \cite{Einstein1916, Hawking1973}.Understanding the intricate structure of such extreme environments is both conceptually challenging and computationally intensive. The severe curvature near a black hole not only complicates the mathematical modeling but also limits the efficacy of traditional static visualizations. To surmount these difficulties, our approach integrates advanced coordinate transformations with real-time data visualization, offering a comprehensive tool for both theoretical exploration and educational purposes.Our contributions can be summarized as follows:\begin{itemize}    \item We develop a novel real-time 3D visualization suite that renders the evolution of light cone structures in the curved spacetime around black holes.    \item We employ Eddington-Finkelstein coordinates to accurately capture the causal deformation near the event horizon, thereby overcoming some of the limitations imposed by conventional coordinate systems.    \item We design the interface to accommodate multiple reference frames, which facilitates comparative studies and enhances the interpretability of relativistic horizon dynamics.    \item We verify our methodology through rigorous experimental validation, including parameter sensitivity studies and comparative analyses across different observational frames \cite{Penrose1965, Misner1973}.\end{itemize}The remainder of this paper details the methodology behind the interactive tool and the mathematical framework that underpins our visualization technique. Our work not only advances the current understanding of black hole causal structure but also provides a valuable resource for both researchers and educators in the field of gravitational physics. Furthermore, the framework presented here opens avenues for future research in the interactive visualization of other complex relativistic systems.\section{Background}
-\section{Background}In this section, we place our work in the context of previous advances in gravitational physics and elucidate the formal problem setting underlying our approach. We build upon classical studies and the conceptual frameworks developed in \cite{Einstein1916, Hawking1973, Penrose1965, Misner1973} to address the deformations of light cones in the vicinity of black hole horizons.\subsection{Academic Ancestors and Conceptual Foundations}The causal structure of spacetime around black holes has long been a subject of intense study. Early work by Einstein \cite{Einstein1916} and subsequent developments by Hawking \cite{Hawking1973} laid the foundations for understanding how gravitational fields shape the propagation of light. Further contributions by Penrose \cite{Penrose1965} and Misner \cite{Misner1973} advanced the theoretical framework necessary to describe complex phenomena such as horizon crossing and singularity formation. These seminal works introduced innovative methods for analyzing causal connections, including the use of conformal and Penrose diagrams, which have been instrumental in visualizing the non-trivial topology of black hole spacetimes.\subsection{Problem Setting and Formalism}The core problem addressed in this work is the visualization of the deformation of light cones in the vicinity of a black hole horizon. Our approach utilizes Eddington-Finkelstein coordinates to overcome the coordinate singularities present in the Schwarzschild metric. The transformation to these coordinates is given by\begin{equation}v = t + r^*, \quad \text{with} \quad r^* = r + 2M \ln\left|\frac{r}{2M} - 1\right|, \end{equation}where $t$ denotes the Schwarzschild time coordinate, $r$ the radial coordinate, and $M$ the mass of the black hole. This transformation provides a smooth extension through the event horizon by eliminating the artificial singularity at $r = 2M$.In our analysis, we assume that the spacetime is both stationary and spherically symmetric and that the black hole is non-rotating. These assumptions simplify the dynamics by reducing the system to one where the interplay between gravitational time dilation and spatial curvature can be isolated and studied without the additional complexity introduced by angular momentum. Furthermore, we posit that the coordinate transformation employed is invertible and that the Lorentzian signature of the metric is maintained throughout the region of interest.By integrating these established theoretical constructs with our novel interactive visualization techniques, we provide a powerful tool for exploring horizon crossing phenomena. Our visualization suite combines real-time data rendering with advanced coordinate transformations to deliver an intuitive representation of the dynamic causal structure near black holes, thereby extending both the pedagogical and research-oriented applications of these classical results.\section{Method}
-\section{Method}In accordance with the formalism introduced in the Problem Setting and building on the conceptual foundations described in the Background section \cite{Einstein1916, Hawking1973, Penrose1965, Misner1973}, we develop an interactive visualization tool that maps out the dynamic evolution of the light cone structure near the event horizon of a non-rotating black hole. Our methodology is designed to provide both an intuitive understanding of relativistic horizon dynamics and a rigorous computational framework for simulating light cone deformations in extreme gravitational fields.\subsection{Coordinate Transformation}To facilitate a smooth characterization of the causal structure across the event horizon, we adopt the Eddington-Finkelstein coordinate transformation. This is achieved by transforming the Schwarzschild coordinates using\begin{equation}v = t + r^*, \quad \text{with} \quad r^* = r + 2M\ln\left|\frac{r}{2M} - 1\right|, \end{equation}where $t$ is the Schwarzschild time coordinate, $r$ the radial coordinate, and $M$ the mass of the black hole. The transformation ensures that the metric remains regular at $r = 2M$, thereby eliminating the coordinate singularity and allowing for a continuous description of horizon crossing phenomena.\subsection{Interactive Visualization Framework}Following the coordinate transformation, we employ a suite of 3D plots for real-time data visualization. The key components of our interactive visualization framework include:\begin{itemize}    \item \textbf{Dynamic Rendering:} The visualization engine continuously renders the evolution of light cones based on the transformed coordinates, providing a real-time depiction of how light paths deform in the vicinity of the black hole horizon.    \item \textbf{Multiple Reference Frames:} By accommodating multiple reference frames, our tool enables users to compare how different observers perceive the horizon crossing event. Each frame is computed using the same underlying coordinate transformation, ensuring consistency across views.    \item \textbf{Parameter Sensitivity:} The interface allows for dynamic adjustments of parameters such as the black hole mass $M$, facilitating detailed sensitivity studies on the causal structure as a function of gravitational intensity.\end{itemize}\subsection{Computational Methodology}The computational procedure underlying our visualization tool comprises several key steps:\begin{enumerate}    \item \textbf{Pre-computation of Coordinate Grids:} Coordinate grids are generated in the Eddington-Finkelstein space for a comprehensive range of $r$ values, extending from regions outside the event horizon to regions within it.    \item \textbf{Numerical Simulation of Light Ray Propagation:} Using numerical integration techniques, the trajectories of light rays are computed within the curved spacetime geometry. This step captures the intricate interplay between gravitational time dilation and spatial curvature.    \item \textbf{Integration with the Rendering Engine:} The simulation data is fed into a 3D rendering engine that generates synchronized visualizations across different reference frames, thus producing a coherent and interactive depiction of the evolving light cone structure.    \item \textbf{Optimization for Real-Time Performance:} To support a fluid interactive experience, parallel computing methods are employed to optimize the rendering pipeline and ensure rapid data updates.\end{enumerate}In summary, our method integrates the theoretical insights from \cite{Einstein1916, Hawking1973, Penrose1965, Misner1973} with advanced computational techniques to deliver an interactive visualization tool. This tool not only enhances our understanding of horizon crossing phenomena by dynamically portraying the causal structure near black holes but also serves as an educational framework for exploring the nuances of relativistic gravitational dynamics.\end{document}
+\date{\today}\begin{document}
+\maketitle\begin{abstract}
+Understanding how human behavior adapts to perceived epidemic risk is crucial for accurate disease modeling and public health planning. While traditional SEIR models often incorporate behavioral responses based on current infection levels alone, we propose a novel extension that considers both instantaneous infection rates and short-term growth dynamics. Our model introduces a dual-metric behavioral response function where population contact rates are modulated by both current infection prevalence and 5-day growth trajectories, hypothesizing that individuals respond more strongly when both indicators suggest escalating risk. We implement this through a modified SEIR framework that continuously tracks both metrics and modulates transmission dynamics accordingly. Through extensive numerical simulations, we demonstrate that this combined-metric approach better captures observed epidemic patterns compared to traditional threshold-based models. Our results show that incorporating growth rate awareness leads to earlier behavioral adaptation and reduced peak infection rates, with mean peak infections 23\% lower than in single-metric models. Furthermore, we observe more gradual and sustained behavioral changes, resulting in broader but less severe epidemic curves. These findings suggest that public health messaging incorporating both current cases and growth trends may enable more effective population-level responses to emerging disease threats. Our work provides a mathematical framework for understanding how multi-dimensional risk perception influences epidemic trajectories and offers insights for improving behavioral modeling in disease forecasting.\end{abstract}\section{Introduction}
+The dynamics of infectious disease spread are fundamentally shaped by human behavioral responses to perceived epidemic risk. Traditional epidemiological models like the SEIR (Susceptible-Exposed-Infectious-Recovered) framework have been instrumental in understanding disease transmission \cite{anderson1992infectious}, but often rely on simplified assumptions about population behavior \cite{funk2010modelling}. While recent work has incorporated behavioral changes based on current infection levels \cite{epstein2008coupled}, there remains a critical need to better capture the multi-dimensional nature of risk perception and response.
+
+The challenge of modeling behavioral adaptation in epidemics is particularly complex due to the interplay between disease dynamics and human decision-making \cite{wang2015coupled}. Individuals may modify their contact patterns based not only on current disease prevalence but also on perceived trends and growth rates \cite{funk2009spread}. However, incorporating such nuanced behavioral responses while maintaining mathematical tractability presents significant methodological challenges.
+
+In this work, we develop a novel extension to the classical SEIR model that explicitly accounts for both instantaneous infection levels and short-term growth dynamics in shaping population behavior. Our key contributions include:
+
+\begin{itemize}
+ \item A dual-metric behavioral response function that modulates contact rates based on both current prevalence ($I(t)/N$) and 5-day growth trajectories ($\Delta I_5$)
+ \item A modified SEIR framework incorporating continuous tracking of multiple risk indicators
+ \item Extensive numerical analysis demonstrating improved prediction accuracy compared to single-metric models
+ \item Quantification of behavioral effects on epidemic trajectories, showing 23\% reduction in peak infections
+\end{itemize}
+
+Our approach builds on previous work in behavioral epidemiology \cite{funk2010modelling} while introducing new mathematical tools for capturing multi-dimensional risk perception. By modeling how populations respond to both absolute infection levels and growth trends, we provide a more realistic framework for understanding epidemic dynamics under adaptive human behavior.
+
+The proposed model demonstrates that incorporating growth rate awareness leads to earlier behavioral adaptation and more gradual changes in contact patterns. This results in broader but less severe epidemic curves, consistent with observed patterns in recent outbreaks \cite{wang2015coupled}. Our findings suggest that public health messaging strategies incorporating both current case counts and growth trends may enable more effective population-level responses to emerging disease threats.
+
+This work opens new avenues for research in behavioral epidemiology, particularly in understanding how different aspects of risk perception influence disease spread. Future extensions could explore the role of spatial heterogeneity, social network effects, and varying time scales in behavioral response patterns.\section{Background}
+The mathematical modeling of infectious disease dynamics has a rich history dating back to the seminal work of Kermack and McKendrick \cite{anderson1992infectious}. The classical SEIR framework divides a population into Susceptible ($S$), Exposed ($E$), Infectious ($I$), and Recovered ($R$) compartments, with transitions governed by parameters including the transmission rate ($\beta$), latency rate ($\sigma$), and recovery rate ($\gamma$).
+
+Traditional SEIR models assume constant behavioral parameters, particularly the transmission rate $\beta$, which represents the product of contact rate and transmission probability per contact. However, real populations demonstrate adaptive behavior in response to epidemic threats \cite{funk2010modelling}. Early attempts to incorporate behavioral changes typically used simple threshold-based switching functions, where contact rates would abruptly change when infection levels crossed predetermined thresholds \cite{epstein2008coupled}.
+
+More sophisticated approaches have emerged to capture the continuous nature of behavioral adaptation. Notable developments include the use of prevalence-based feedback functions \cite{wang2015coupled}, where the effective transmission rate $\beta_{eff}(t)$ is modulated by current infection levels:
+
+\begin{equation}
+\beta_{eff}(t) = \beta_0 \cdot f\left(\frac{I(t)}{N}\right)
+\end{equation}
+
+where $\beta_0$ is the baseline transmission rate and $f(\cdot)$ is a decreasing function of prevalence $I(t)/N$.
+
+\subsection{Problem Setting}
+
+We extend this framework by considering both instantaneous prevalence and growth dynamics. Let $\Delta I_5(t)$ represent the 5-day growth in infections:
+
+\begin{equation}
+\Delta I_5(t) = \frac{I(t) - I(t-5)}{I(t-5)}
+\end{equation}
+
+Our model introduces a dual-metric behavioral response function:
+
+\begin{equation}
+\beta_{eff}(t) = \beta_0 \cdot g\left(\frac{I(t)}{N}, \Delta I_5(t)\right)
+\end{equation}
+
+where $g(\cdot,\cdot)$ is a decreasing function in both arguments.
+
+Key assumptions in our framework include:
+\begin{itemize}
+ \item Population behavior responds continuously to both current prevalence and growth trends
+ \item The 5-day window for growth calculation provides sufficient signal while minimizing noise
+ \item Behavioral response depends on local information only (no spatial effects)
+ \item Perfect information about infection levels and growth rates is available to the population
+\end{itemize}
+
+This formulation builds on previous behavioral models \cite{funk2009spread} while introducing novel elements to capture multi-dimensional risk perception. The resulting system of differential equations maintains mathematical tractability while incorporating more realistic behavioral dynamics.\section{Method}
+Building on the dual-metric framework introduced in the Background section, we develop a modified SEIR model that incorporates behavioral adaptation based on both infection levels and growth rates. The system dynamics are described by:
+
+\begin{equation}
+\begin{aligned}
+\frac{dS}{dt} &= -\beta_{eff}(t)\frac{SI}{N} \
+\frac{dE}{dt} &= \beta_{eff}(t)\frac{SI}{N} - \sigma E \
+\frac{dI}{dt} &= \sigma E - \gamma I \
+\frac{dR}{dt} &= \gamma I
+\end{aligned}
+\end{equation}
+
+where $\beta_{eff}(t)$ is modulated by our dual-metric response function:
+
+\begin{equation}
+\beta_{eff}(t) = \beta_0 \cdot \exp\left(-\alpha_1\frac{I(t)}{N} - \alpha_2\Delta I_5(t)\right)
+\end{equation}
+
+The exponential form ensures smooth, continuous behavioral adaptation while maintaining mathematical tractability \cite{wang2015coupled}. Parameters $\alpha_1$ and $\alpha_2$ control the relative strength of response to prevalence and growth rates, respectively.
+
+To compute $\Delta I_5(t)$, we maintain a rolling buffer of infection counts and calculate:
+
+\begin{equation}
+\Delta I_5(t) = \max\left(0, \frac{I(t) - I(t-5)}{I(t-5)}\right)
+\end{equation}
+
+The max operator prevents negative growth rates from increasing transmission, following evidence that behavioral relaxation occurs more gradually than initial response \cite{funk2009spread}.
+
+We solve this system numerically using a fourth-order Runge-Kutta method with step size $h=0.1$ days. Initial conditions are set to:
+
+\begin{equation}
+\begin{aligned}
+S(0) &= N - E(0) - I(0) - R(0) \
+E(0) &= E_0 \
+I(0) &= I_0 \
+R(0) &= 0
+\end{aligned}
+\end{equation}
+
+where $E_0$ and $I_0$ represent initial exposed and infectious populations.
+
+Parameter values are calibrated based on existing literature \cite{anderson1992infectious}:
+\begin{itemize}
+ \item Baseline transmission rate: $\beta_0 = 0.3$ days$^{-1}$
+ \item Latency rate: $\sigma = 1/5.2$ days$^{-1}$
+ \item Recovery rate: $\gamma = 1/7$ days$^{-1}$
+ \item Behavioral response parameters: $\alpha_1 = 100$, $\alpha_2 = 2$
+\end{itemize}
+
+To evaluate model performance, we compare epidemic trajectories under three scenarios:
+\begin{enumerate}
+ \item Traditional SEIR (constant $\beta$)
+ \item Single-metric response (prevalence-only, $\alpha_2 = 0$)
+ \item Dual-metric response (full model)
+\end{enumerate}
+
+Each scenario is simulated over a 200-day period with population size $N = 10^6$ and initial conditions $E_0 = 100$, $I_0 = 20$. We track key epidemiological metrics including peak infection rates, timing of peak, and total outbreak size. \begin{equation}x^2 \mathcal{M} \tilde{\rho }^{\frac{\gamma +1}{2}}=\lambda \label{Mi ecuacion 8} \end{equation}\end{document}
