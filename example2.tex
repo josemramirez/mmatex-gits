@@ -1,9 +1,12 @@
-
-%% Beginning of file == mru.tex ==
-%% 
-%% Created 21-07-2025
 % Setting up the document class for Beamer
 \documentclass{beamer}
+
+% Including essential packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{tikz} % For drawing the box with text
+\usepackage{array} % For table formatting
 
 
 
@@ -11,55 +14,36 @@
 \usetheme{Madrid}
 \usecolortheme{beaver}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Paquetes.. %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage[latin1]{inputenc}
-% Including essential packages
-%\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage{tikz} % For drawing the box with text
-\usepackage{array} % For table formatting
-\usepackage{cancel}
-
-
-%% You can insert definicions here..
-
-%% DEFINICIONES MIAS..
-%\def\psPiFour{12.566371}
-%\def\psPiTwo{6.283185}
-\def\psPi{3.14159265}
-%\def\psPiH{1.570796327}
-%\newdimen\pstRadUnit
-%\newdimen\pstRadUnitInv
-%\pstRadUnit=1.047198cm % this is pi/3
-%\pstRadUnitInv=0.95493cm % this is 3/pi
-
-
+% Defining the title and author
 %% Libreria de formulas %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{lib/FORMULAS}
 %% Libreria de Notas    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{lib/NOTASUNIDADES}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
 %% Titulo y autor .. obligatorio..
 \title{MRU i1: ver1}
 \subtitle{Practica... y las puertas se abren}
-\author{JM~Ramirez}
+\author{ejjr}
+
+
 \date{\today}
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Comienzo del documento.. %%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-\maketitle
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%% Para pegar el log.. %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\Logo(2,.3){\includegraphics[width=0.01cm]{/Users/josem/Dropbox/Yachay2018/CosasYachay/logos/fisica-new31.eps}}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Creating the title frame
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% Creating a simple content frame
+\begin{frame}{Título de la Diapositiva}
+    \begin{itemize}
+        \item Punto 1: Este es un ejemplo sencillo.
+        \item Punto 2: Usamos Beamer en LaTeX.
+        \item Punto 3: ¡Personaliza como quieras!
+    \end{itemize}
+\end{frame}
 
 
 
@@ -91,8 +75,10 @@ identificaci\'on de los elementos del problema.
 %----------------------------------------------------------------
 \end{frame}
 
+
+
 %________________________________________________________________(ult. col, 65)
-% ========================== slide1 ============================= 
+% ========================== frame1 ============================= 
 \begin{frame}{MRU}
 % 
 % -Paragraph1 
@@ -101,29 +87,24 @@ identificaci\'on de los elementos del problema.
 % -Idea1 
 % ============================================================== 
  
-%% Dibuja una cajita!! %%%%%%%%%%%%%%%%%%%
-%% el background de gris..
+% Creating a centered box with gray background and rounded corners
 \begin{center}
 \begin{tikzpicture}
     \node[draw, line width=0.8pt, rounded corners=5pt, fill=lightgray, inner sep=10pt] (box) {
         \begin{tabular}{c}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-{\bf Elementos del Problema}\\
-$t_{1}=205$ s  \\
-$t_{2}=15$ s  \\
-$t_{Total}=(t_{1}+t_{2})=220$ s  \\
-$v=152$ km/h \\
-$l_{\text{veh{\'i}culo}}=?$   \\
-$l_{\text{puente}}=?$ \\ 
-$x_{AC}=(l_{\text{veh{\'i}culo}}+l_{\text{puente}})=$? \\
-    .. Este problema tiene un {\it truquito}! \\
-    La distancia total desde (A) hasta (C) \\
-    es: $x_{AC}=vt_{Total}$ \\
-    Ve la figura que sigue :) 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\end{tabular}
+            \textbf{Elementos del Problema} \\
+            $t_{1}=205$ s \\
+            $t_{2}=15$ s \\
+            $t_{\text{Total}}=(t_{1}+t_{2})=220$ s \\
+            $v=152$ km/h \\
+            $l_{\text{objeto}}=?$ \\
+            $l_{\text{puente}}=?$ \\
+            $x_{AC}=(l_{\text{objeto}}+l_{\text{puente}})=?$ \\
+            \textit{.. Este problema tiene un truquito!} \\
+            La distancia total desde (A) hasta (C) \\
+            es: $x_{AC}=vt_{\text{Total}}$ \\
+            Ve la figura que sigue :)
+        \end{tabular}
     };
 \end{tikzpicture}
 \end{center}
@@ -132,7 +113,7 @@ $x_{AC}=(l_{\text{veh{\'i}culo}}+l_{\text{puente}})=$? \\
 \vspace{0.5cm}
 \begin{center}
 \begin{tikzpicture}
-    \node[draw, line width=0.8pt, inner sep=5pt] at (0,0) {Qu\'e f\'ormula uso?};
+    \node[draw, line width=0.8pt, inner sep=5pt] at (0,0) {¿Qué fórmula uso?};
 \end{tikzpicture}
 \end{center}
 
@@ -141,16 +122,4 @@ $x_{AC}=(l_{\text{veh{\'i}culo}}+l_{\text{puente}})=$? \\
 %----------------------------------------------------------------
 \end{frame}
 
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%  Tail  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \end{document}
-%%
-%% End of file == mru.tex ==
-%%
-%% Modified 21-07-2025 
