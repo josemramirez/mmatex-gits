@@ -1,15 +1,18 @@
 
 % Setting up the document class for Beamer
-\documentclass{prosper}
+\documentclass{beamer}
 
 % Including essential packages
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
+\usepackage{tikz} % For drawing the box with text
+\usepackage{array} % For table formatting
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Paquetes.. %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[latin1]{inputenc}
-\usepackage{pstricks,pstricks-add,pst-node,pst-text,pst-3d}
+%\usepackage{pstricks,pstricks-add,pst-node,pst-text,pst-3d}
 \usepackage{amsmath}
 \usepackage{cancel}
 %% Mate
@@ -18,8 +21,8 @@
 
 
 % Configuring the Beamer theme
-%\usetheme{Madrid}
-%\usecolortheme{beaver}
+\usetheme{Madrid}
+\usecolortheme{beaver}
 
 % Defining the title and author
 %% Libreria de formulas %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -38,25 +41,25 @@
 
 \begin{document}
 
-% Creating the title slide
-\begin{slide}
+% Creating the title frame
+\begin{frame}
     \titlepage
-\end{slide}
+\end{frame}
 
-% Creating a simple content slide
-\begin{slide}{Título de la Diapositiva}
+% Creating a simple content frame
+\begin{frame}{Título de la Diapositiva}
     \begin{itemize}
         \item Punto 1: Este es un ejemplo sencillo.
         \item Punto 2: Usamos Beamer en LaTeX.
         \item Punto 3: ¡Personaliza como quieras!
     \end{itemize}
-\end{slide}
+\end{frame}
 
 
 
 %________________________________________________________________(ult. col, 65)
-% ========================== slide1 ============================= 
-\begin{slide}{MRU}
+% ========================== frame1 ============================= 
+\begin{frame}{MRU}
 % 
 % -Paragraph1 
 %----------------------------------------------------------------
@@ -80,13 +83,13 @@ identificaci\'on de los elementos del problema.
 % ============================================================== 
 %----------------------------------------------------------------
 %----------------------------------------------------------------
-\end{slide}
+\end{frame}
 
 
 
 %________________________________________________________________(ult. col, 65)
-% ========================== slide1 ============================= 
-\begin{slide}{MRU}
+% ========================== frame1 ============================= 
+\begin{frame}{MRU}
 % 
 % -Paragraph1 
 %----------------------------------------------------------------
@@ -94,48 +97,39 @@ identificaci\'on de los elementos del problema.
 % -Idea1 
 % ============================================================== 
  
-%% Dibuja una cajita!! %%%%%%%%%%%%%%%%%%%
-%% el background de gris..
-\psslidebox[linewidth=2pt,slidearc=.3,fillstyle=solid,
-fillcolor=lightgray]{
-\begin{tabular}{c}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Creating a centered box with gray background and rounded corners
+\begin{center}
+\begin{tikzpicture}
+    \node[draw, line width=0.8pt, rounded corners=5pt, fill=lightgray, inner sep=10pt] (box) {
+        \begin{tabular}{c}
+            \textbf{Elementos del Problema} \\
+            $t_{1}=205$ s \\
+            $t_{2}=15$ s \\
+            $t_{\text{Total}}=(t_{1}+t_{2})=220$ s \\
+            $v=152$ km/h \\
+            $l_{\text{objeto}}=?$ \\
+            $l_{\text{puente}}=?$ \\
+            $x_{AC}=(l_{\text{objeto}}+l_{\text{puente}})=?$ \\
+            \textit{.. Este problema tiene un truquito!} \\
+            La distancia total desde (A) hasta (C) \\
+            es: $x_{AC}=vt_{\text{Total}}$ \\
+            Ve la figura que sigue :)
+        \end{tabular}
+    };
+\end{tikzpicture}
+\end{center}
 
-{\bf Elementos del Problema}\\
-$t_{1}=205$ s  \\
-$t_{2}=15$ s  \\
-$t_{Total}=(t_{1}+t_{2})=220$ s  \\
-$v=152$ km/h \\
-$l_{\text{objeto}}=?$   \\
-$l_{\text{puente}}=?$ \\ 
-$x_{AC}=(l_{\text{objeto}}+l_{\text{puente}})=$? \\
-    .. Este problema tiene un {\it truquito}! \\
-    La distancia total desde (A) hasta (C) \\
-    es: $x_{AC}=vt_{Total}$ \\
-    Ve la figura que sigue :) 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\end{tabular}
-}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% Generated with LaTeXDraw 2.0.0
-% Fri Aug 01 20:56:48 CEST 2008
-% \usepackage[usenames,dvipsnames]{pstricks}
-% \usepackage{epsfig}
-% \usepackage{pst-grad} % For gradients
-% \usepackage{pst-plot} % For axes
-\scalebox{1} % Change this value to rescale the drawing.
-{
-\begin{pspicture}(0,-0.3528646)(3.3785417,0.3528646)
-\usefont{T1}{ptm}{m}{n}
-\rput(10.2,4){\psslidebox[linewidth=0.04]{Qu\'e f\'ormula uso?}}
-\end{pspicture}
-}
+% Adding the small drawing with text below the box
+\vspace{0.5cm}
+\begin{center}
+\begin{tikzpicture}
+    \node[draw, line width=0.8pt, inner sep=5pt] at (0,0) {¿Qué fórmula uso?};
+\end{tikzpicture}
+\end{center}
 
 % ============================================================== 
 %----------------------------------------------------------------
 %----------------------------------------------------------------
-\end{slide}
+\end{frame}
 
 \end{document}
