@@ -1,116 +1,429 @@
-\documentclass{article}\usepackage{graphicx} \usepackage{amsmath} \usepackage{colortbl}\title{Cosmology 101 - Version 0.1}
-\author{J. M. Ram{\'i}rez,$^{1}$ Co-Author1,$^{4}$ Co-Author2,$^{5}$}
-\date{\today}\begin{document}
-\maketitle\begin{abstract}
-Understanding how human behavior adapts to perceived epidemic risk is crucial for accurate disease modeling and public health planning. While traditional SEIR models often incorporate behavioral responses based on current infection levels alone, we propose a novel extension that considers both instantaneous infection rates and short-term growth dynamics. Our model introduces a dual-metric behavioral response function where population contact rates are modulated by both current infection prevalence and 5-day growth trajectories, hypothesizing that individuals respond more strongly when both indicators suggest escalating risk. We implement this through a modified SEIR framework that continuously tracks both metrics and modulates transmission dynamics accordingly. Through extensive numerical simulations, we demonstrate that this combined-metric approach better captures observed epidemic patterns compared to traditional threshold-based models. Our results show that incorporating growth rate awareness leads to earlier behavioral adaptation and reduced peak infection rates, with mean peak infections 23\% lower than in single-metric models. Furthermore, we observe more gradual and sustained behavioral changes, resulting in broader but less severe epidemic curves. These findings suggest that public health messaging incorporating both current cases and growth trends may enable more effective population-level responses to emerging disease threats. Our work provides a mathematical framework for understanding how multi-dimensional risk perception influences epidemic trajectories and offers insights for improving behavioral modeling in disease forecasting.\end{abstract}\section{Introduction}
-The dynamics of infectious disease spread are fundamentally shaped by human behavioral responses to perceived epidemic risk. Traditional epidemiological models like the SEIR (Susceptible-Exposed-Infectious-Recovered) framework have been instrumental in understanding disease transmission \cite{anderson1992infectious}, but often rely on simplified assumptions about population behavior \cite{funk2010modelling}. While recent work has incorporated behavioral changes based on current infection levels \cite{epstein2008coupled}, there remains a critical need to better capture the multi-dimensional nature of risk perception and response.
 
-The challenge of modeling behavioral adaptation in epidemics is particularly complex due to the interplay between disease dynamics and human decision-making \cite{wang2015coupled}. Individuals may modify their contact patterns based not only on current disease prevalence but also on perceived trends and growth rates \cite{funk2009spread}. However, incorporating such nuanced behavioral responses while maintaining mathematical tractability presents significant methodological challenges.
+%% Beginning of file == mru.tex ==
+%% 
+%% Created 20-07-2025
+\documentclass[%
+%%%%%%%%%%%%%%%%%%%%
+%% Final o draft? %%
+final,
+%draft,
+%%%%%%%%%%%%%%%%%%%%
+%% Total o no toal?%
+total,
+%nototal,
+%%%%%%%%%%%%%%%%%%%%
+%% Color o BW?%%%%%%
+%slideColor,
+slideBW,
+%%%%%%%%%%%%%%%%%%%%
+%% colorBG o no? %%%
+%nocolorBG,
+colorBG,
+%%%%%%%%%%%%%%%%%%%%
+%% PS o PDF %%%%%%%%
+%ps,
+pdf,
+%%%%%%%%%%%%%%%%%%%%
+%% otra opcion.. %%%
+accumulate,
+%noaccumulate,
+%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+%% Background %%%%%%
+%frames
+%azure
+%contemporain
+%nuancegris
+%troispoints,
+%lignesbleues
+%darkblue
+%alienglow
+%autumn
+%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+]{prosper}
 
-In this work, we develop a novel extension to the classical SEIR model that explicitly accounts for both instantaneous infection levels and short-term growth dynamics in shaping population behavior. Our key contributions include:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Paquetes.. %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[latin1]{inputenc}
+\usepackage{pstricks,pstricks-add,pst-node,pst-text,pst-3d}
+\usepackage{amsmath}
+\usepackage{cancel}
+%% Mate
+\usepackage{pst-func}
+\usepackage{pst-math}
 
-\begin{itemize}
- \item A dual-metric behavioral response function that modulates contact rates based on both current prevalence ($I(t)/N$) and 5-day growth trajectories ($\Delta I_5$)
- \item A modified SEIR framework incorporating continuous tracking of multiple risk indicators
- \item Extensive numerical analysis demonstrating improved prediction accuracy compared to single-metric models
- \item Quantification of behavioral effects on epidemic trajectories, showing 23\% reduction in peak infections
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Seguridad.. %%%%%%%%%%%%%%%%%%%%%%
+\hypersetup{
+pdfpagemode={FullScreen},
+pdftitle={MRU i1: ver1},
+pdfauthor={JM~Ramirez},
+pdfcreator={JM~Ramirez},
+pdfproducer={JM~Ramirez},
+pdfkeywords={Movimiento,Rectilineo,Uniforme}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% You can insert definicions here..
+
+%% DEFINICIONES MIAS..
+%\def\psPiFour{12.566371}
+%\def\psPiTwo{6.283185}
+\def\psPi{3.14159265}
+%\def\psPiH{1.570796327}
+%\newdimen\pstRadUnit
+%\newdimen\pstRadUnitInv
+%\pstRadUnit=1.047198cm % this is pi/3
+%\pstRadUnitInv=0.95493cm % this is 3/pi
+
+
+%% Libreria de formulas %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{lib/FORMULAS}
+%% Libreria de Notas    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{lib/NOTASUNIDADES}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Titulo y autor .. obligatorio..
+\title{MRU i1: ver1}
+\subtitle{Practica... y las puertas se abren}
+\author{ejjr}
+\email{ejjr.clases@gmail.com}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Comienzo del documento.. %%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\maketitle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%% Para pegar el log.. %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%% Advertencia para no dejar que se copien %%%%%%%%%%%
+\slideCaption{{\gray \large Esta nota tiene la intenci\'on de que \'este
+material no sea entregado como tarea.}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%________________________________________________________________(ult. col, 65)
+% ========================== slide1 ============================= 
+\begin{slide}{MRU}
+% 
+% -Paragraph1 
+%----------------------------------------------------------------
+%----------------------------------------------------------------
+% -Idea1 
+% ============================================================== 
+ 
+\input{enunciado_final.tex}
+
+% ============================================================== 
+% -Idea2 
+% ============================================================== 
+ 
+\begin{itemize}                                                              
+
+\item El 1er paso en la resoluci\'on de cualquier problema, es la
+identificaci\'on de los elementos del problema.            
+              
 \end{itemize}
 
-Our approach builds on previous work in behavioral epidemiology \cite{funk2010modelling} while introducing new mathematical tools for capturing multi-dimensional risk perception. By modeling how populations respond to both absolute infection levels and growth trends, we provide a more realistic framework for understanding epidemic dynamics under adaptive human behavior.
+% ============================================================== 
+%----------------------------------------------------------------
+%----------------------------------------------------------------
+\end{slide}
 
-The proposed model demonstrates that incorporating growth rate awareness leads to earlier behavioral adaptation and more gradual changes in contact patterns. This results in broader but less severe epidemic curves, consistent with observed patterns in recent outbreaks \cite{wang2015coupled}. Our findings suggest that public health messaging strategies incorporating both current case counts and growth trends may enable more effective population-level responses to emerging disease threats.
+%________________________________________________________________(ult. col, 65)
+% ========================== slide1 ============================= 
+\begin{slide}{MRU}
+% 
+% -Paragraph1 
+%----------------------------------------------------------------
+% ============================================================== 
+% -Idea1 
+% ============================================================== 
+ 
+%% Dibuja una cajita!! %%%%%%%%%%%%%%%%%%%
+%% el background de gris..
+\psframebox[linewidth=2pt,framearc=.3,fillstyle=solid,
+fillcolor=lightgray]{
+\begin{tabular}{c}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-This work opens new avenues for research in behavioral epidemiology, particularly in understanding how different aspects of risk perception influence disease spread. Future extensions could explore the role of spatial heterogeneity, social network effects, and varying time scales in behavioral response patterns.\section{Background}
-The mathematical modeling of infectious disease dynamics has a rich history dating back to the seminal work of Kermack and McKendrick \cite{anderson1992infectious}. The classical SEIR framework divides a population into Susceptible ($S$), Exposed ($E$), Infectious ($I$), and Recovered ($R$) compartments, with transitions governed by parameters including the transmission rate ($\beta$), latency rate ($\sigma$), and recovery rate ($\gamma$).
+{\bf Elementos del Problema}\\
+$t_{1}=205$ s  \\
+$t_{2}=15$ s  \\
+$t_{Total}=(t_{1}+t_{2})=220$ s  \\
+$v=152$ km/h \\
+$l_{\text{auto}}=?$   \\
+$l_{\text{puente}}=?$ \\ 
+$x_{AC}=(l_{\text{auto}}+l_{\text{puente}})=$? \\
+    .. Este problema tiene un {\it truquito}! \\
+    La distancia total desde (A) hasta (C) \\
+    es: $x_{AC}=vt_{Total}$ \\
+    Ve la figura que sigue :) 
 
-Traditional SEIR models assume constant behavioral parameters, particularly the transmission rate $\beta$, which represents the product of contact rate and transmission probability per contact. However, real populations demonstrate adaptive behavior in response to epidemic threats \cite{funk2010modelling}. Early attempts to incorporate behavioral changes typically used simple threshold-based switching functions, where contact rates would abruptly change when infection levels crossed predetermined thresholds \cite{epstein2008coupled}.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{tabular}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-More sophisticated approaches have emerged to capture the continuous nature of behavioral adaptation. Notable developments include the use of prevalence-based feedback functions \cite{wang2015coupled}, where the effective transmission rate $\beta_{eff}(t)$ is modulated by current infection levels:
+% Generated with LaTeXDraw 2.0.0
+% Fri Aug 01 20:56:48 CEST 2008
+% \usepackage[usenames,dvipsnames]{pstricks}
+% \usepackage{epsfig}
+% \usepackage{pst-grad} % For gradients
+% \usepackage{pst-plot} % For axes
+\scalebox{1} % Change this value to rescale the drawing.
+{
+\begin{pspicture}(0,-0.3528646)(3.3785417,0.3528646)
+\usefont{T1}{ptm}{m}{n}
+\rput(10.2,4){\psframebox[linewidth=0.04]{Qu\'e f\'ormula uso?}}
+\end{pspicture}
+}
 
-\begin{equation}
-\beta_{eff}(t) = \beta_0 \cdot f\left(\frac{I(t)}{N}\right)
+% ============================================================== 
+%----------------------------------------------------------------
+%----------------------------------------------------------------
+\end{slide}
+
+%________________________________________________________________(ult. col, 65)
+% ========================== slide2 ============================= 
+\begin{slide}{MRU}
+% 
+% -Paragraph1 
+%----------------------------------------------------------------
+%----------------------------------------------------------------
+% -Idea1 
+% ==============================================================
+
+% Generated with LaTeXDraw 2.0.0
+% Sat Aug 09 20:46:30 CEST 2008
+% \usepackage[usenames,dvipsnames]{pstricks}
+% \usepackage{epsfig}
+% \usepackage{pst-grad} % For gradients
+% \usepackage{pst-plot} % For axes
+\scalebox{0.7} % Change this value to rescale the drawing.
+{
+\begin{pspicture}(0,-5.194844)(13.665937,5.194844)
+\definecolor{color934}{rgb}{0.8980392156862745,0.25882352941176473,0.25882352941176473}
+\psline[linewidth=0.04cm](4.720625,3.8373437)(6.620625,3.8373437)
+\psline[linewidth=0.04cm](4.680625,3.9973438)(4.680625,3.6573439)
+\psline[linewidth=0.04cm](6.660625,3.9773438)(6.660625,3.6973438)
+\psline[linewidth=0.04cm](4.680625,3.5973437)(4.680625,3.2573438)
+\psline[linewidth=0.04cm](4.680625,3.4173439)(5.080625,3.4173439)
+\psline[linewidth=0.04cm](6.080625,3.4173439)(6.640625,3.4173439)
+\psline[linewidth=0.04cm](6.660625,3.5773437)(6.660625,3.2773438)
+\usefont{T1}{ptm}{m}{n}
+\rput(5.66125,4.1473436){\color{color934}\text{auto}}
+\usefont{T1}{ptm}{m}{n}
+\rput(5.6607814,3.4073439){$l_{\text{auto}}$}
+\usefont{T1}{ptm}{m}{n}
+\rput(4.6590624,4.1873436){(A)}
+\usefont{T1}{ptm}{m}{n}
+\rput(6.6390624,4.1873436){(B)}
+\psline[linewidth=0.04cm,arrowsize=0.05291667cm 2.0,arrowlength=1.4,arrowinset=0.4]{->}(4.700625,2.9173439)(6.700625,2.8973436)
+\usefont{T1}{ptm}{m}{n}
+\rput(5.674375,2.6073437){v=152 km/h}
+\psline[linewidth=0.04cm](6.760625,1.8373437)(10.020625,1.8373437)
+\psline[linewidth=0.04cm](6.720625,1.9973438)(6.720625,1.6573437)
+\psline[linewidth=0.04cm](10.060625,1.9773438)(10.060625,1.6973437)
+\psline[linewidth=0.04cm](6.720625,1.5973438)(6.720625,1.2573438)
+\psline[linewidth=0.04cm](6.720625,1.4223437)(7.200625,1.4223437)
+\psline[linewidth=0.04cm](8.780625,1.4373437)(10.020625,1.4223437)
+\psline[linewidth=0.04cm](10.060625,1.5973438)(10.060625,1.2973437)
+\usefont{T1}{ptm}{m}{n}
+\rput(8.389218,2.2473438){\color{color934}pte.}
+\usefont{T1}{ptm}{m}{n}
+\rput(8.050781,1.4473437){$l_{\text{puente}}$}
+\usefont{T1}{ptm}{m}{n}
+\rput(10.0390625,2.3673437){(C)}
+\usefont{T1}{ptm}{m}{n}
+\rput(6.9590626,4.987344){(1) Al comienzo de la obervaci\'on.}
+\usefont{T1}{ptm}{m}{n}
+\rput(6.793594,-1.6126562){entre (A) y (C) es $t_{tot}=220$ s y que $x_{AC}=vt_{tot}$}
+\usefont{T1}{ptm}{m}{n}
+\rput(6.1648436,-1.0726563){El truco de este problema, es que el tiempo que pasa}
+\psline[linewidth=0.04cm](4.680625,0.8773438)(10.020625,0.85734373)
+\psline[linewidth=0.04cm](10.060625,1.0773437)(10.060625,0.6773437)
+\psline[linewidth=0.04cm](4.680625,1.0573437)(4.680625,0.69734377)
+\psline[linewidth=0.04cm](4.680625,0.63734376)(4.680625,0.37734374)
+\psline[linewidth=0.04cm](4.720625,0.49734375)(5.160625,0.49734375)
+\psline[linewidth=0.04cm](9.540625,0.47734374)(9.940625,0.47734374)
+\psline[linewidth=0.04cm](10.060625,0.63734376)(10.060625,0.31734374)
+\usefont{T1}{ptm}{m}{n}
+\rput(7.520781,0.48734376){$x_{AC}=l_{\text{auto}}+l_{\text{puente}}$}
+\pscircle[linewidth=0.04,dimen=outer](3.810625,-0.37265626){0.23}
+\usefont{T1}{ptm}{m}{n}
+\rput(3.82125,-0.39265624){A}
+\psline[linewidth=0.04cm,arrowsize=0.05291667cm 2.0,arrowlength=1.4,arrowinset=0.4]{->}(4.000625,-0.14265625)(4.600625,0.41734374)
+\pscircle[linewidth=0.04,dimen=outer](10.910625,-0.41265625){0.23}
+\usefont{T1}{ptm}{m}{n}
+\rput(10.905937,-0.43265626){C}
+\psline[linewidth=0.04cm,arrowsize=0.05291667cm 2.0,arrowlength=1.4,arrowinset=0.4]{->}(10.640625,-0.26265624)(10.240625,0.25734374)
+\psline[linewidth=0.04cm](6.180625,-2.5826561)(9.440625,-2.5826561)
+\psline[linewidth=0.04cm](6.140625,-2.4226563)(6.140625,-2.7626562)
+\psline[linewidth=0.04cm](9.480625,-2.4426563)(9.480625,-2.7226562)
+\psline[linewidth=0.04cm](6.140625,-2.8226562)(6.140625,-3.1626563)
+\psline[linewidth=0.04cm](6.140625,-2.9976563)(6.620625,-2.9976563)
+\psline[linewidth=0.04cm](8.400625,-2.9826562)(9.440625,-2.9976563)
+\psline[linewidth=0.04cm](9.480625,-2.8226562)(9.480625,-3.1226563)
+\usefont{T1}{ptm}{m}{n}
+\rput(7.809219,-2.1726563){\color{color934}pte.}
+\usefont{T1}{ptm}{m}{n}
+\rput(7.3507814,-2.9926562){$l_{\text{puente}}$}
+\usefont{T1}{ptm}{m}{n}
+\rput(9.459063,-2.0526562){(C)}
+\psline[linewidth=0.04cm](7.540625,-3.7626562)(9.440625,-3.7626562)
+\psline[linewidth=0.04cm](7.500625,-3.6026564)(7.500625,-3.9426563)
+\psline[linewidth=0.04cm](9.480625,-3.6226563)(9.480625,-3.9026563)
+\psline[linewidth=0.04cm](7.500625,-4.0026565)(7.500625,-4.342656)
+\psline[linewidth=0.04cm](7.500625,-4.1826563)(7.900625,-4.1826563)
+\psline[linewidth=0.04cm](8.900625,-4.1826563)(9.460625,-4.1826563)
+\psline[linewidth=0.04cm](9.480625,-4.0226564)(9.480625,-4.322656)
+\usefont{T1}{ptm}{m}{n}
+\rput(8.48125,-3.4526563){\color{color934}\text{auto}}
+\usefont{T1}{ptm}{m}{n}
+\rput(8.500781,-4.192656){$l_{\text{auto}}$}
+\usefont{T1}{ptm}{m}{n}
+\rput(7.4790626,-3.4126563){(A)}
+\usefont{T1}{ptm}{m}{n}
+\rput(9.459063,-3.4126563){(B)}
+\psline[linewidth=0.04cm,arrowsize=0.05291667cm 2.0,arrowlength=1.4,arrowinset=0.4]{->}(7.520625,-4.6826563)(9.520625,-4.7026563)
+\usefont{T1}{ptm}{m}{n}
+\rput(8.494375,-4.992656){v=152 km/h}
+\end{pspicture} 
+}
+
+% ============================================================== 
+%----------------------------------------------------------------
+%----------------------------------------------------------------
+\end{slide}
+
+%________________________________________________________________(ult. col, 65)
+% ========================== slide2 ============================= 
+\begin{slide}{MRU}
+% 
+% -Paragraph1 
+%----------------------------------------------------------------
+%----------------------------------------------------------------
+% -Idea1 
+% ============================================================== 
+ 
+{\huge                
+\xmru
+}                                             
+ 
+% ============================================================== 
+% -Idea2 
+% ============================================================== 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%% Cajita de Texto sencilla %%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+\psdblframebox[linewidth=1.5pt,linecolor=red]{%
+\parbox[c]{5cm}{
+1 km =  1000 metros \\
+y \\
+1 hora =  3600 segundos \\
+
+}}
+\end{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                           
+% ============================================================== 
+% -Idea3 
+% ============================================================== 
+ 
+Finalmente..                                                              
+                                                               
+                                                               
+% ============================================================== 
+%----------------------------------------------------------------
+%----------------------------------------------------------------
+\end{slide}
+
+%________________________________________________________________(ult. col, 65)
+% ========================== slide3 ============================= 
+\begin{slide}{MRU}
+% 
+% -Paragraph1 
+%----------------------------------------------------------------
+% ============================================================== 
+% -Idea1
+% ==============================================================
+
+La longitud del puente es:
+{\large
+\begin{equation} 
+l_{\text{puente}}=
+152~(\frac{1000}{3600})~
+\frac{m}{\cancel{s}}~[205~\cancel{s}]=
+8655~m
 \end{equation}
+}
 
-where $\beta_0$ is the baseline transmission rate and $f(\cdot)$ is a decreasing function of prevalence $I(t)/N$.
+                               
+% ============================================================== 
+% -Idea2 
+% ============================================================== 
 
-\subsection{Problem Setting}
-
-We extend this framework by considering both instantaneous prevalence and growth dynamics. Let $\Delta I_5(t)$ represent the 5-day growth in infections:
-
-\begin{equation}
-\Delta I_5(t) = \frac{I(t) - I(t-5)}{I(t-5)}
+La distancia total desde (A) a (C) es: 
+{\large
+\begin{equation} 
+x_{AC}=
+152~(\frac{1000}{3600})~
+\frac{m}{\cancel{s}}~[220~\cancel{s}]=
+9288~m
 \end{equation}
+}
 
-Our model introduces a dual-metric behavioral response function:
+% ============================================================== 
+%----------------------------------------------------------------
+%----------------------------------------------------------------
+\end{slide}
 
-\begin{equation}
-\beta_{eff}(t) = \beta_0 \cdot g\left(\frac{I(t)}{N}, \Delta I_5(t)\right)
+%________________________________________________________________(ult. col, 65)
+% ========================== slide3 ============================= 
+\begin{slide}{MRU}
+% 
+% -Paragraph1 
+%----------------------------------------------------------------
+% ============================================================== 
+% -Idea1
+% ==============================================================
+
+La longitud del auto es simplemente:
+{\large
+\begin{equation} 
+l_{\text{auto}}=
+x_{AC}-l_{\text{puente}}
+=
+633~m
 \end{equation}
+}
 
-where $g(\cdot,\cdot)$ is a decreasing function in both arguments.
+                               
+% ============================================================== 
+% -Idea2 
+% ============================================================== 
 
-Key assumptions in our framework include:
-\begin{itemize}
- \item Population behavior responds continuously to both current prevalence and growth trends
- \item The 5-day window for growth calculation provides sufficient signal while minimizing noise
- \item Behavioral response depends on local information only (no spatial effects)
- \item Perfect information about infection levels and growth rates is available to the population
-\end{itemize}
 
-This formulation builds on previous behavioral models \cite{funk2009spread} while introducing novel elements to capture multi-dimensional risk perception. The resulting system of differential equations maintains mathematical tractability while incorporating more realistic behavioral dynamics.\section{Method}
-Building on the dual-metric framework introduced in the Background section, we develop a modified SEIR model that incorporates behavioral adaptation based on both infection levels and growth rates. The system dynamics are described by:
 
-\begin{equation}
-\begin{aligned}
-\frac{dS}{dt} &= -\beta_{eff}(t)\frac{SI}{N} \
-\frac{dE}{dt} &= \beta_{eff}(t)\frac{SI}{N} - \sigma E \
-\frac{dI}{dt} &= \sigma E - \gamma I \
-\frac{dR}{dt} &= \gamma I
-\end{aligned}
-\end{equation}
 
-where $\beta_{eff}(t)$ is modulated by our dual-metric response function:
+% ============================================================== 
+%----------------------------------------------------------------
+%----------------------------------------------------------------
+\end{slide}
 
-\begin{equation}
-\beta_{eff}(t) = \beta_0 \cdot \exp\left(-\alpha_1\frac{I(t)}{N} - \alpha_2\Delta I_5(t)\right)
-\end{equation}
 
-The exponential form ensures smooth, continuous behavioral adaptation while maintaining mathematical tractability \cite{wang2015coupled}. Parameters $\alpha_1$ and $\alpha_2$ control the relative strength of response to prevalence and growth rates, respectively.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%  Tail  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-To compute $\Delta I_5(t)$, we maintain a rolling buffer of infection counts and calculate:
-
-\begin{equation}
-\Delta I_5(t) = \max\left(0, \frac{I(t) - I(t-5)}{I(t-5)}\right)
-\end{equation}
-
-The max operator prevents negative growth rates from increasing transmission, following evidence that behavioral relaxation occurs more gradually than initial response \cite{funk2009spread}.
-
-We solve this system numerically using a fourth-order Runge-Kutta method with step size $h=0.1$ days. Initial conditions are set to:
-
-\begin{equation}
-\begin{aligned}
-S(0) &= N - E(0) - I(0) - R(0) \
-E(0) &= E_0 \
-I(0) &= I_0 \
-R(0) &= 0
-\end{aligned}
-\end{equation}
-
-where $E_0$ and $I_0$ represent initial exposed and infectious populations.
-
-Parameter values are calibrated based on existing literature \cite{anderson1992infectious}:
-\begin{itemize}
- \item Baseline transmission rate: $\beta_0 = 0.3$ days$^{-1}$
- \item Latency rate: $\sigma = 1/5.2$ days$^{-1}$
- \item Recovery rate: $\gamma = 1/7$ days$^{-1}$
- \item Behavioral response parameters: $\alpha_1 = 100$, $\alpha_2 = 2$
-\end{itemize}
-
-To evaluate model performance, we compare epidemic trajectories under three scenarios:
-\begin{enumerate}
- \item Traditional SEIR (constant $\beta$)
- \item Single-metric response (prevalence-only, $\alpha_2 = 0$)
- \item Dual-metric response (full model)
-\end{enumerate}
-
-Each scenario is simulated over a 200-day period with population size $N = 10^6$ and initial conditions $E_0 = 100$, $I_0 = 20$. We track key epidemiological metrics including peak infection rates, timing of peak, and total outbreak size. \begin{equation}x^2 \mathcal{M} \tilde{\rho }^{\frac{\gamma +1}{2}}=\lambda \label{Mi ecuacion 8} \end{equation}\end{document}
+\end{document}
+%%
+%% End of file == mru.tex ==
+%%
+%% Modified 20-07-2025 
