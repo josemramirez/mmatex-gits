@@ -1,6 +1,6 @@
 
 % Setting up the document class for Beamer
-\documentclass{beamer}
+\documentclass{prosper}
 
 % Including essential packages
 \usepackage[utf8]{inputenc}
@@ -18,8 +18,8 @@
 
 
 % Configuring the Beamer theme
-\usetheme{Madrid}
-\usecolortheme{beaver}
+%\usetheme{Madrid}
+%\usecolortheme{beaver}
 
 % Defining the title and author
 %% Libreria de formulas %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -39,24 +39,24 @@
 \begin{document}
 
 % Creating the title slide
-\begin{frame}
+\begin{slide}
     \titlepage
-\end{frame}
+\end{slide}
 
 % Creating a simple content slide
-\begin{frame}{Título de la Diapositiva}
+\begin{slide}{Título de la Diapositiva}
     \begin{itemize}
         \item Punto 1: Este es un ejemplo sencillo.
         \item Punto 2: Usamos Beamer en LaTeX.
         \item Punto 3: ¡Personaliza como quieras!
     \end{itemize}
-\end{frame}
+\end{slide}
 
 
 
 %________________________________________________________________(ult. col, 65)
 % ========================== slide1 ============================= 
-\begin{frame}{MRU}
+\begin{slide}{MRU}
 % 
 % -Paragraph1 
 %----------------------------------------------------------------
@@ -80,13 +80,13 @@ identificaci\'on de los elementos del problema.
 % ============================================================== 
 %----------------------------------------------------------------
 %----------------------------------------------------------------
-\end{frame}
+\end{slide}
 
 
 
 %________________________________________________________________(ult. col, 65)
 % ========================== slide1 ============================= 
-\begin{frame}{MRU}
+\begin{slide}{MRU}
 % 
 % -Paragraph1 
 %----------------------------------------------------------------
@@ -96,7 +96,7 @@ identificaci\'on de los elementos del problema.
  
 %% Dibuja una cajita!! %%%%%%%%%%%%%%%%%%%
 %% el background de gris..
-\psframebox[linewidth=2pt,framearc=.3,fillstyle=solid,
+\psslidebox[linewidth=2pt,slidearc=.3,fillstyle=solid,
 fillcolor=lightgray]{
 \begin{tabular}{c}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -129,13 +129,13 @@ $x_{AC}=(l_{\text{objeto}}+l_{\text{puente}})=$? \\
 {
 \begin{pspicture}(0,-0.3528646)(3.3785417,0.3528646)
 \usefont{T1}{ptm}{m}{n}
-\rput(10.2,4){\psframebox[linewidth=0.04]{Qu\'e f\'ormula uso?}}
+\rput(10.2,4){\psslidebox[linewidth=0.04]{Qu\'e f\'ormula uso?}}
 \end{pspicture}
 }
 
 % ============================================================== 
 %----------------------------------------------------------------
 %----------------------------------------------------------------
-\end{frame}
+\end{slide}
 
 \end{document}
