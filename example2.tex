@@ -1,93 +1,34 @@
-%% Beginning of file == mru.tex ==
-%% 
-%% Created 20-07-2025
-\documentclass
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Paquetes.. %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage[latin1]{inputenc}
-\usepackage{amsmath}
+% Setting up the document class for Beamer
+\documentclass{beamer}
 
+% Including essential packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
 
+% Configuring the Beamer theme
+\usetheme{default}
 
+% Defining the title and author
+\title{Ejemplo de Diapositiva}
+\author{Tu Nombre}
+\date{\today}
 
-%% You can insert definicions here..
-
-%% DEFINICIONES MIAS..
-%\def\psPiFour{12.566371}
-%\def\psPiTwo{6.283185}
-\def\psPi{3.14159265}
-%\def\psPiH{1.570796327}
-%\newdimen\pstRadUnit
-%\newdimen\pstRadUnitInv
-%\pstRadUnit=1.047198cm % this is pi/3
-%\pstRadUnitInv=0.95493cm % this is 3/pi
-
-
-%% Libreria de formulas %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\input{lib/FORMULAS}
-%% Libreria de Notas    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\input{lib/NOTASUNIDADES}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%% Titulo y autor .. obligatorio..
-\title{MRU i1: ver1}
-\subtitle{Practica... y las puertas se abren}
-\author{ejjr}
-\email{ejjr.clases@gmail.com}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Comienzo del documento.. %%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-\maketitle
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%% Para pegar el log.. %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Creating the title slide
+\begin{frame}
+    \titlepage
+\end{frame}
 
-%%%%%%% Advertencia para no dejar que se copien %%%%%%%%%%%
-\slideCaption{{\gray \large Esta nota tiene la intenci\'on de que \'este
-material no sea entregado como tarea.}}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%________________________________________________________________(ult. col, 65)
-% ========================== slide1 ============================= 
-\begin{slide}{MRU}
-% 
-% -Paragraph1 
-%----------------------------------------------------------------
-%----------------------------------------------------------------
-% -Idea1 
-% ============================================================== 
- 
-\input{enunciado_final.tex}
-
-% ============================================================== 
-% -Idea2 
-% ============================================================== 
- 
-\begin{itemize}                                                              
-
-\item El 1er paso en la resoluci\'on de cualquier problema, es la
-identificaci\'on de los elementos del problema.            
-              
-\end{itemize}
-
-% ============================================================== 
-%----------------------------------------------------------------
-%----------------------------------------------------------------
-\end{slide}
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%  Tail  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Creating a simple content slide
+\begin{frame}{Título de la Diapositiva}
+    \begin{itemize}
+        \item Punto 1: Este es un ejemplo sencillo.
+        \item Punto 2: Usamos Beamer en LaTeX.
+        \item Punto 3: ¡Personaliza como quieras!
+    \end{itemize}
+\end{frame}
 
 \end{document}
-%%
-%% End of file == mru.tex ==
-%%
-%% Modified 20-07-2025 
