@@ -21,6 +21,17 @@
 \usepackage{tikz} % For drawing the box with text
 \usepackage{array} % For table formatting
 \usepackage{cancel}
+\usepackage{background}
+
+% Configuración del fondo pastel
+\backgroundsetup{
+    scale=1,
+    color=black,
+    opacity=0.4,
+    angle=0,
+    pages=all,
+    contents={\includegraphics[width=\paperwidth,height=\paperheight]{images/imagen2.png}}
+}
 
 
 %% You can insert definicions here..
@@ -45,7 +56,7 @@
 
 %% Titulo y autor .. obligatorio..
 \title{MRU i1: ver1}
-\subtitle{Practica... y las puertas se abren}
+\subtitle{Otoño - 2025}
 \author{JM~Ramirez}
 \date{\today}
 
@@ -56,12 +67,7 @@
 \begin{document}
 \maketitle
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%% Para pegar el log.. %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\Logo(2,.3){\includegraphics[width=0.01cm]{/Users/josem/Dropbox/Yachay2018/CosasYachay/logos/fisica-new31.eps}}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
+\Logo(2,.3){\includegraphics[width=0.01cm]{}}
 
 %________________________________________________________________(ult. col, 65)
 % ========================== frame1 ============================= 
