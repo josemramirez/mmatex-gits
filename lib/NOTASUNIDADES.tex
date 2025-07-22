@@ -5,9 +5,11 @@
 {
 %% Dibuja una cajita!! %%%%%%%%%%%%%%%%%%%
 %% el background de gris..
-\psframebox[linewidth=2pt,framearc=.3,fillstyle=solid,
-fillcolor=lightgray]{
-\begin{tabular}{c}
+\begin{tikzpicture}
+  \node[rectangle, rounded corners=0.3cm, 
+  fill=lightgray, draw, line width=2pt, 
+  inner sep=10pt] {
+    \begin{tabular}{c}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 {\bf Notas de Unidades}\\
 {\sc magnitud}: Velocidad [v].
@@ -25,7 +27,8 @@ $1~\frac{{\rm m}}{{\rm s}} = 100~\frac{{\rm cm}}{{\rm s}}$
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{tabular}
-}
+  };
+\end{tikzpicture}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% fin definicion de vNUa
