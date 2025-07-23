@@ -1,7 +1,7 @@
 
 %% Beginning of file == mru.tex ==
 %% 
-%% Created 21-07-2025
+%% Created 23-07-2025
 % Setting up the document class for Beamer
 \documentclass{beamer}
 
@@ -73,7 +73,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%% Para pegar el log.. %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\logo{\includegraphics[width=12cm]{images/citlogogrey.eps}}
+\logo{%
+    \begin{tikzpicture}
+        \node[opacity=0.2] {\includegraphics[width=1cm]{images/citlogogrey.eps}};
+    \end{tikzpicture}
+}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -134,8 +138,8 @@ Recu\'erdalo por sus unidades:
 
 \begin{equation*}
 10\frac{\text{km}}{\text{h}} =
-\frac{\text{Se recorren 10 km ({ distancia})}}
-{\text{en 1 hora ({ tiempo})}}
+\frac{\text{Se recorren 10 km ({distancia})}}
+{\text{en 1 hora ({tiempo})}}
 \end{equation*}
                                                                
 % ============================================================== 
@@ -290,9 +294,9 @@ $t_{1}=205$ s  \\
 $t_{2}=15$ s  \\
 $t_{Total}=(t_{1}+t_{2})=220$ s  \\
 $v=152$ km/h \\
-$l_{\text{carro}}=?$   \\
+$l_{\text{m\'ovil}}=?$   \\
 $l_{\text{puente}}=?$ \\ 
-$x_{AC}=(l_{\text{carro}}+l_{\text{puente}})=$? \\
+$x_{AC}=(l_{\text{m\'ovil}}+l_{\text{puente}})=$? \\
     .. Este problema tiene un {\it truquito}! \\
     La distancia total desde (A) hasta (C) \\
     es: $x_{AC}=vt_{Total}$ \\
@@ -515,4 +519,4 @@ x_{AC}=
 %%
 %% End of file == mru.tex ==
 %%
-%% Modified 21-07-2025 
+%% Modified 23-07-2025 
