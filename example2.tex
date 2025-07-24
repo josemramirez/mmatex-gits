@@ -3,7 +3,13 @@
 %% Original created 05-10-2008; ported to Beamer July 2025
 \documentclass{beamer}
 
+\usepackage{xcolor}
 \usetheme{Copenhagen}  % Change to Madrid, Copenhagen, etc., for fancier look
+% Define custom colors
+\definecolor{electricblue}{RGB}{0,191,255} % Electric blue
+% \definecolor{creamyblue}{RGB}{173,216,230} % Creamy blue
+\setbeamercolor{structure}{fg=electricblue} % Apply electric blue
+% \setbeamercolor{structure}{fg=creamyblue} % Uncomment for creamy blue
 
 \usepackage[latin1]{inputenc}
 \usepackage{amsmath}
@@ -57,7 +63,7 @@ Recu\'erdalo por sus unidades:
 
 \begin{equation*}
 10\frac{\text{km}}{\text{h}} =
-\frac{\text{Se recorren 10 km ({distancia})}}
+\frac{\text{Se recorren 10 km ({\red distancia})}}
 {\text{en 1 hora ({tiempo})}}
 \end{equation*}
 
@@ -85,7 +91,7 @@ Es uniforme porque la velocidad no var\'ia en el tiempo; \\
 \begin{frame}
 \frametitle{MRU}
 
-Un << ferrocarril >> { se desplaza } { 1400 centimetros } cada { 20 horas }. ?`Qu\'e { distancia } recorre al cabo de { 300 segundos ?} %% Hay 1 elementos de distancia %% Hay 2 elementos de tiempo %% Hay 0 elementos de velocidad
+Un {{ ferrocarril }} {{ se desplaza }} {{ 1400 centimetros }} cada {{ 20 horas }}. ?`Qu\'e {{ distancia }} recorre al cabo de {{ 300 segundos ?}} %% Hay 1 elementos de distancia %% Hay 2 elementos de tiempo %% Hay 0 elementos de velocidad
 
 
 \begin{itemize}
