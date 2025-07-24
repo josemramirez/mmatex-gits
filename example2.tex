@@ -1,42 +1,69 @@
 
 %% Beginning of file == mru.tex ==
 %% 
-%% Created 23-07-2025
-% Setting up the document class for Beamer
-\documentclass{beamer}
-
-
-
-% Configuring the Beamer theme
-\usetheme{Madrid}
-\usecolortheme{beaver}
+%% Created 05-10-2008
+\documentclass[%
+%%%%%%%%%%%%%%%%%%%%
+%% Final o draft? %%
+final,
+%draft,
+%%%%%%%%%%%%%%%%%%%%
+%% Total o no toal?%
+total,
+%nototal,
+%%%%%%%%%%%%%%%%%%%%
+%% Color o BW?%%%%%%
+%slideColor,
+slideBW,
+%%%%%%%%%%%%%%%%%%%%
+%% colorBG o no? %%%
+%nocolorBG,
+colorBG,
+%%%%%%%%%%%%%%%%%%%%
+%% PS o PDF %%%%%%%%
+%ps,
+pdf,
+%%%%%%%%%%%%%%%%%%%%
+%% otra opcion.. %%%
+accumulate,
+%noaccumulate,
+%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+%% Background %%%%%%
+%frames
+%azure
+%contemporain
+%nuancegris
+%troispoints,
+%lignesbleues
+%darkblue
+%alienglow
+%autumn
+%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+]{prosper}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Paquetes.. %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\usepackage[latin1]{inputenc}
-% Including essential packages
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage{tikz} % For drawing the box with text
-\usepackage{array} % For table formatting
-\usepackage{cancel}
-\usepackage{background}
+\usepackage[latin1]{inputenc}
+\usepackage{pstricks,pstricks-add,pst-node,pst-text,pst-3d}
 \usepackage{amsmath}
-\usetikzlibrary{arrows.meta, calc, shapes.geometric, backgrounds}
+\usepackage{cancel}
+%% Mate
+\usepackage{pst-func}
+\usepackage{pst-math}
 
-
-% Configuración del fondo pastel
-%\backgroundsetup{
-%    scale=1,
-%    color=black,
-%    opacity=0.8,
-%    angle=0,
-%    pages=all,
-%    contents={\includegraphics[width=\paperwidth,height=\paperheight]{images/imagen2.png}}
-%}
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Seguridad.. %%%%%%%%%%%%%%%%%%%%%%
+\hypersetup{
+pdfpagemode={FullScreen},
+pdftitle={MRU e1: ver1},
+pdfauthor={JM~Ramirez},
+pdfcreator={JM~Ramirez},
+pdfproducer={JM~Ramirez},
+pdfkeywords={Movimiento,Rectilineo,Uniforme}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% You can insert definicions here..
 
@@ -57,41 +84,31 @@
 \input{lib/NOTASUNIDADES}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
 %% Titulo y autor .. obligatorio..
-\title{MRU i1: ver1}
-\subtitle{Otoño - 2025}
-\author{JM~Ramirez}
-\date{\today}
-
+\title{MRU e1: ver1}
+\subtitle{Practica... y las puertas se abren}
+\author{ejjr}
+\email{ejjr.clases@gmail.com}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Comienzo del documento.. %%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 \maketitle
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%% Para pegar el log.. %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\logo{%
-    \begin{tikzpicture}
-        \node[opacity=0.2] {\includegraphics[width=1cm]{images/citlogogrey.eps}};
-    \end{tikzpicture}
-}
+\Logo(-1,.6){\includegraphics[width=12cm]{/home/josem/WEB_JJR/libs/figs/citlogogrey.eps}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 %%%%%%% Advertencia para no dejar que se copien %%%%%%%%%%%
-\addtobeamertemplate{footnote}{}{\gray \large Esta nota tiene la intenci\'on de que \'este material no sea entregado como tarea.}
+\slideCaption{{\gray \large Esta nota tiene la intenci\'on de que \'este
+material no sea entregado como tarea.}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
 
 %________________________________________________________________(ult. col, 65)
 % ========================== slide1 ============================= 
-\begin{frame}{Movimiento Rectil\'ineo Uniforme}
+\begin{slide}{Movimiento Rectil\'ineo Uniforme}
 % 
 % -Paragraph1 
 %----------------------------------------------------------------
@@ -117,12 +134,10 @@
 % ============================================================== 
 %----------------------------------------------------------------
 %----------------------------------------------------------------
-\end{frame}
-
-
+\end{slide}
 %________________________________________________________________(ult. col, 65)
 % ========================== slide2 ============================= 
-\begin{frame}{MRU}
+\begin{slide}{MRU}
 % 
 % -Paragraph1 
 %----------------------------------------------------------------
@@ -138,8 +153,8 @@ Recu\'erdalo por sus unidades:
 
 \begin{equation*}
 10\frac{\text{km}}{\text{h}} =
-\frac{\text{Se recorren 10 km ({distancia})}}
-{\text{en 1 hora ({tiempo})}}
+\frac{\text{Se recorren 10 km ({\red distancia})}}
+{\text{en 1 hora ({\red tiempo})}}
 \end{equation*}
                                                                
 % ============================================================== 
@@ -148,16 +163,15 @@ Recu\'erdalo por sus unidades:
  
 Las otras dos f\'ormulas que se derivan de (\ref{vmru}) son:
 
-{\large \xmru \ \tmru}
+{\large \xmru \\ \tmru}
                                                               
 % ============================================================== 
 %----------------------------------------------------------------
 %----------------------------------------------------------------
-\end{frame}
-
-
+\end{slide}
+%________________________________________________________________(ult. col, 65)
 % ========================== slide3 ============================= 
-\begin{frame}{MRU}
+\begin{slide}{MRU}
 % 
 % -Paragraph1 
 %----------------------------------------------------------------
@@ -165,7 +179,7 @@ Las otras dos f\'ormulas que se derivan de (\ref{vmru}) son:
 % -Idea1 
 % ============================================================== 
                                                                
-Es uniforme porque la velocidad no var\'ia en el tiempo; \
+Es uniforme porque la velocidad no var\'ia en el tiempo; \\
 (v es el mismo en cada unidad de tiempo!)
                                               
 % ============================================================== 
@@ -188,36 +202,28 @@ Es uniforme porque la velocidad no var\'ia en el tiempo; \
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Este es el pspicture enviroment.. el mas sencillo %%%%%%%%%
-\begin{tikzpicture}[scale=0.75]
-\path (-0.5,-3.5) rectangle (8.5,4.5); % Optional bounding box
-% Axes
-\draw[->] (0,0) -- (8.5,0);
-\foreach \x in {0,1,...,8} {
-  \draw (\x cm, 3pt) -- (\x cm, -3pt);
-  \node[below] at (\x, -0.3) {\x};
-}
-\draw[->] (0,0) -- (0,4.5);
-\foreach \y in {0,1,...,4} {
-  \draw (3pt, \y cm) -- (-3pt, \y cm);
-  \node[left] at (-0.3,\y) {\y};
-}
-\node[anchor=north] at (4.5,-1){t(s)};        %% Eje X
-\node[anchor=east] at (-1,3.5){v(cm/s)};     %% Eje Y
+\psset{unit=0.75}
+\begin{pspicture}(-0.5,-3.5)(8.5,4.5)
+%%%%%%%%%%%%%%%%(x1 , y1  )(x2 , y2)
+\psaxes{->}(0,0)(\iX,\iY)(\jX,\jY)
+\uput[-90](4.5,-1){t(s)}        %% Eje X
+\uput[180](-1,3.5){v(cm/s)}     %% Eje Y
 
 %% Un recta y=ctte .. %%%%%%%
 \def\iVctte{2.5}
 %% (x1 , y1  )(x2 , y2=y1)
-\draw[dashed, dash pattern=on 4pt off 2pt] (0,\iVctte) -- (8.5,\iVctte);
+\psline[linestyle=dashed](0,\iVctte)(8.5,\iVctte)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% El do de latex-pstricks!!! %%%%%%%%%%%%%%%%%%%%%%
 %%% quiero poner unos punto rojos sobre la recta %%%%
-\foreach \iA in {1,...,7}{
-\fill[red] (\iA,\iVctte) circle[radius=3pt];}%
+\multido{\iA=1+1}{7}{%
+\psdot[linecolor=red,dotscale=2.](\iA,\iVctte)}%
+%\pscircle[fillstyle=solid](\iA,2.5){0.2}}%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                                              
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\end{tikzpicture}
+\end{pspicture}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -237,14 +243,11 @@ Es uniforme porque la velocidad no var\'ia en el tiempo; \
 % ============================================================== 
 %----------------------------------------------------------------
 %----------------------------------------------------------------
-\end{frame}
+\end{slide}
 
 %________________________________________________________________(ult. col, 65)
-
-
-%________________________________________________________________(ult. col, 65)
-% ========================== frame1 ============================= 
-\begin{frame}{MRU}
+% ========================== slide1 ============================= 
+\begin{slide}{MRU}
 % 
 % -Paragraph1 
 %----------------------------------------------------------------
@@ -252,8 +255,8 @@ Es uniforme porque la velocidad no var\'ia en el tiempo; \
 % -Idea1 
 % ============================================================== 
  
-\input{enunciado_final.tex}
-
+\input{enunciado_final.tex}                                                              
+                                                              
 % ============================================================== 
 % -Idea2 
 % ============================================================== 
@@ -263,161 +266,55 @@ Es uniforme porque la velocidad no var\'ia en el tiempo; \
 \item El 1er paso en la resoluci\'on de cualquier problema, es la
 identificaci\'on de los elementos del problema.            
               
-\end{itemize}
-
+\end{itemize}                                                 
 % ============================================================== 
-%----------------------------------------------------------------
-%----------------------------------------------------------------
-\end{frame}
-
-
-%________________________________________________________________(ult. col, 65)
-% ========================== slide1 ============================= 
-\begin{frame}{MRU}
-% 
-% -Paragraph1 
-%----------------------------------------------------------------
-% ============================================================== 
-% -Idea1 
+% -Idea3 
 % ============================================================== 
  
 %% Dibuja una cajita!! %%%%%%%%%%%%%%%%%%%
 %% el background de gris..
-\begin{center}
-\begin{tikzpicture}
-    \node[draw, line width=0.8pt, rounded corners=5pt, fill=lightgray, inner sep=10pt] (box) {
-        \begin{tabular}{c}
+\psframebox[linewidth=2pt,framearc=.3,fillstyle=solid,
+fillcolor=lightgray]{
+\begin{tabular}{c}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 {\bf Elementos del Problema}\\
-$t_{1}=205$ s  \\
-$t_{2}=15$ s  \\
-$t_{Total}=(t_{1}+t_{2})=220$ s  \\
-$v=152$ km/h \\
-$l_{\text{m\'ovil}}=?$   \\
-$l_{\text{puente}}=?$ \\ 
-$x_{AC}=(l_{\text{m\'ovil}}+l_{\text{puente}})=$? \\
-    .. Este problema tiene un {\it truquito}! \\
-    La distancia total desde (A) hasta (C) \\
-    es: $x_{AC}=vt_{Total}$ \\
-    Ve la figura que sigue :) 
+
+$x=?$	\\
+
+$v=\cancelto{5}{\frac{10}{2}}
+\frac{metros}{segundos}$ \\
+
+$t=30~minutos$	\\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{tabular}
-    };
-\end{tikzpicture}
-\end{center}
-
-% Adding the small drawing with text below the box
-\vspace{0.5cm}
-\begin{center}
-\begin{tikzpicture}
-    \node[draw, line width=0.8pt, inner sep=5pt] at (0,0) {Qu\'e f\'ormula uso?};
-\end{tikzpicture}
-\end{center}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+% Generated with LaTeXDraw 2.0.0
+% Fri Aug 01 20:56:48 CEST 2008
+% \usepackage[usenames,dvipsnames]{pstricks}
+% \usepackage{epsfig}
+% \usepackage{pst-grad} % For gradients
+% \usepackage{pst-plot} % For axes
+\scalebox{1} % Change this value to rescale the drawing.
+{
+\begin{pspicture}(0,-0.3528646)(3.3785417,0.3528646)
+\usefont{T1}{ptm}{m}{n}
+\rput(8.4,2){\psframebox[linewidth=0.04]{Qu\'e f\'ormula uso?}}
+\end{pspicture}
+}
 
 % ============================================================== 
 %----------------------------------------------------------------
 %----------------------------------------------------------------
-\end{frame}
+\end{slide}
 
 
 %________________________________________________________________(ult. col, 65)
 % ========================== slide2 ============================= 
-\begin{frame}{MRU}
-% 
-% -Paragraph1 
-%----------------------------------------------------------------
-%----------------------------------------------------------------
-% -Idea1 
-% ==============================================================
-
-% Requires \usepackage{tikz} and \usetikzlibrary{arrows.meta} in the Beamer preamble
-\begin{center}
-\begin{tikzpicture}[scale=0.7, transform shape]
-    \definecolor{color934}{rgb}{0.8980392156862745,0.25882352941176473,0.25882352941176473}
-    % First diagram
-    \node at (5.66, 4.99) {(1) Al comienzo de la observaci\'{o}n.};
-    \draw[line width=0.4mm] (4.72, 3.84) -- (6.62, 3.84);
-    \draw[line width=0.4mm] (4.68, 4.00) -- (4.68, 3.66);
-    \draw[line width=0.4mm] (6.66, 3.98) -- (6.66, 3.70);
-    \draw[line width=0.4mm] (4.68, 3.60) -- (4.68, 3.26);
-    \draw[line width=0.4mm] (4.68, 3.42) -- (5.08, 3.42);
-    \draw[line width=0.4mm] (6.08, 3.42) -- (6.64, 3.42);
-    \draw[line width=0.4mm] (6.66, 3.58) -- (6.66, 3.28);
-    \node[color=color934] at (5.66, 4.15) {objeto};
-    \node at (5.66, 3.41) {$l_{\text{objeto}}$};
-    \node at (4.66, 4.19) {(A)};
-    \node at (6.64, 4.19) {(B)};
-    %\draw[line width=0.4mm, -{Stealth[length=1.4mm]}] (4.70, 2.92) -- (6.70, 2.90);
-    \node at (5.67, 2.61) {$v=v1 \, u_{v1}$};
-    % Second diagram
-    \draw[line width=0.4mm] (6.76, 1.84) -- (10.02, 1.84);
-    \draw[line width=0.4mm] (6.72, 2.00) -- (6.72, 1.66);
-    \draw[line width=0.4mm] (10.06, 1.98) -- (10.06, 1.70);
-    \draw[line width=0.4mm] (6.72, 1.60) -- (6.72, 1.26);
-    \draw[line width=0.4mm] (6.72, 1.42) -- (7.20, 1.42);
-    \draw[line width=0.4mm] (8.78, 1.44) -- (10.02, 1.42);
-    \draw[line width=0.4mm] (10.06, 1.60) -- (10.06, 1.30);
-    \node[color=color934] at (8.39, 2.25) {pte.};
-    \node at (8.05, 1.45) {$l_{\text{puente}}$};
-    \node at (10.04, 2.37) {(C)};
-    % Third diagram
-    \draw[line width=0.4mm] (4.68, 0.88) -- (10.02, 0.86);
-    \draw[line width=0.4mm] (10.06, 1.08) -- (10.06, 0.68);
-    \draw[line width=0.4mm] (4.68, 1.06) -- (4.68, 0.70);
-    \draw[line width=0.4mm] (4.68, 0.64) -- (4.68, 0.38);
-    \draw[line width=0.4mm] (4.72, 0.50) -- (5.16, 0.50);
-    \draw[line width=0.4mm] (9.54, 0.48) -- (9.94, 0.48);
-    \draw[line width=0.4mm] (10.06, 0.64) -- (10.06, 0.32);
-    \node at (7.52, 0.49) {$x_{AC}=l_{\text{objeto}}+l_{\text{puente}}$};
-    \draw[line width=0.4mm, fill=white] (3.81, -0.37) circle (0.23);
-    \node at (3.82, -0.39) {A};
-    %\draw[line width=0.4mm, -{Stealth[length=1.4mm]}] (4.00, -0.14) -- (4.60, 0.42);
-    \draw[line width=0.4mm, fill=white] (10.91, -0.41) circle (0.23);
-    \node at (10.91, -0.43) {C};
-    %\draw[line width=0.4mm, -{Stealth[length=1.4mm]}] (10.64, -0.26) -- (10.24, 0.26);
-    % Fourth diagram
-    \draw[line width=0.4mm] (6.18, -2.58) -- (9.44, -2.58);
-    \draw[line width=0.4mm] (6.14, -2.42) -- (6.14, -2.76);
-    \draw[line width=0.4mm] (9.48, -2.44) -- (9.48, -2.72);
-    \draw[line width=0.4mm] (6.14, -2.82) -- (6.14, -3.16);
-    \draw[line width=0.4mm] (6.14, -3.00) -- (6.62, -3.00);
-    \draw[line width=0.4mm] (8.40, -2.98) -- (9.44, -3.00);
-    \draw[line width=0.4mm] (9.48, -2.82) -- (9.48, -3.12);
-    \node[color=color934] at (7.81, -2.17) {pte.};
-    \node at (7.35, -2.99) {$l_{\text{puente}}$};
-    \node at (9.46, -2.05) {(C)};
-    % Fifth diagram
-    \draw[line width=0.4mm] (7.54, -3.76) -- (9.44, -3.76);
-    \draw[line width=0.4mm] (7.50, -3.60) -- (7.50, -3.94);
-    \draw[line width=0.4mm] (9.48, -3.62) -- (9.48, -3.90);
-    \draw[line width=0.4mm] (7.50, -4.00) -- (7.50, -4.34);
-    \draw[line width=0.4mm] (7.50, -4.18) -- (7.90, -4.18);
-    \draw[line width=0.4mm] (8.90, -4.18) -- (9.46, -4.18);
-    \draw[line width=0.4mm] (9.48, -4.02) -- (9.48, -4.32);
-    \node[color=color934] at (8.48, -3.45) {objeto};
-    \node at (8.50, -4.19) {$l_{\text{objeto}}$};
-    \node at (7.48, -3.41) {(A)};
-    \node at (9.46, -3.41) {(B)};
-    %\draw[line width=0.4mm, -{Stealth[length=1.4mm]}] (7.52, -4.68) -- (9.52, -4.70);
-    \node at (8.49, -4.99) {$v=v1 \, u_{v1}$};
-    % Text annotations
-    \node at (6.16, -1.07) {El truco de este problema, es que el tiempo que pasa};
-    \node at (6.79, -1.61) {entre (A) y (C) es $t_{\text{tot}}=ttot1$ s y que $x_{AC}=v t_{\text{tot}}$};
-\end{tikzpicture}
-\end{center}
-
-
-% ============================================================== 
-%----------------------------------------------------------------
-%----------------------------------------------------------------
-\end{frame}
-
-
-%________________________________________________________________(ult. col, 65)
-% ========================== frame2 ============================= 
-\begin{frame}{MRU}
+\begin{slide}{MRU}
 % 
 % -Paragraph1 
 %----------------------------------------------------------------
@@ -432,27 +329,24 @@ $x_{AC}=(l_{\text{m\'ovil}}+l_{\text{puente}})=$? \\
 % ============================================================== 
 % -Idea2 
 % ============================================================== 
+ 
+Pero.. siempre debemos trabajar en el mismo sistema de unidades.
+Es decir, si hay un metros/segundos,
+debemos transformar los 
+minutos a segundos :)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%% Cajita de Texto sencilla %%%%%%%%%%%%%%%%%%%%%
 \begin{center}
-\begin{tikzpicture}
-    % Creating a double-framed box with red border
-    \node[
-        draw=red, 
-        line width=0.42mm, % Approximating 1.5pt
-        double, 
-        double distance=0.5mm, % Simulating psdblframebox
-        inner sep=10pt
-    ] (box) {
-        \parbox[c]{5cm}{
-1 km =  1000 metros \\
-y \\
-1 hora =  3600 segundos \\
+\psdblframebox[linewidth=1.5pt,linecolor=red]{%
+\parbox[c]{6cm}{
+1 minuto = 60 segundos \\
+Entonces 30 minutos son \\
+30 $\times$ 60 segundos \\
+30 minutos =
+1800 segundos.
 
-        }
-    };
-\end{tikzpicture}
+}}
 \end{center}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -467,48 +361,45 @@ Finalmente..
 % ============================================================== 
 %----------------------------------------------------------------
 %----------------------------------------------------------------
-\end{frame}
+\end{slide}
 
 
 %________________________________________________________________(ult. col, 65)
-% ========================== frame3 ============================= 
-\begin{frame}{MRU}
+% ========================== slide3 ============================= 
+\begin{slide}{MRU}
 % 
 % -Paragraph1 
 %----------------------------------------------------------------
+%----------------------------------------------------------------
+% -Idea1 
 % ============================================================== 
-% -Idea1
-% ==============================================================
-
-La longitud del puente es:
 {\large
-\begin{equation} 
-l_{\text{puente}}=
-152~(\frac{1000}{3600})~
-\frac{m}{\cancel{s}}~[205~\cancel{s}]=
-8655~m
-\end{equation}
-}
+\begin{equation}
+x=
+(5\frac{m}{\cancel{s}})
+(1800~\cancel{s})=
+9000~m
+\end{equation}}
 
                                
 % ============================================================== 
 % -Idea2 
 % ============================================================== 
+ 
+La distancia que recorre el ferrocarril es
+\fbox{9000 m}
 
-La distancia total desde (A) a (C) es: 
-{\large
-\begin{equation} 
-x_{AC}=
-152~(\frac{1000}{3600})~
-\frac{m}{\cancel{s}}~[220~\cancel{s}]=
-9288~m
-\end{equation}
-}
-
+                                                             
+% ============================================================== 
+% -Idea3 
+% ============================================================== 
+                                                               
+                                                               
+                                                               
 % ============================================================== 
 %----------------------------------------------------------------
 %----------------------------------------------------------------
-\end{frame}
+\end{slide}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -519,4 +410,4 @@ x_{AC}=
 %%
 %% End of file == mru.tex ==
 %%
-%% Modified 23-07-2025 
+%% Modified 05-10-2008 
