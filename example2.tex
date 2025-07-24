@@ -3,7 +3,7 @@
 %% Original created 05-10-2008; ported to Beamer July 2025
 \documentclass{beamer}
 
-\usetheme{default}  % Change to Madrid, Copenhagen, etc., for fancier look
+\usetheme{Copenhagen}  % Change to Madrid, Copenhagen, etc., for fancier look
 
 \usepackage[latin1]{inputenc}
 \usepackage{amsmath}
@@ -26,8 +26,8 @@ pdfkeywords={Movimiento,Rectilineo,Uniforme}}
 \input{lib/NOTASUNIDADES}
 
 \title{MRU e1: ver1}
-\subtitle{Practica... y las puertas se abren}
-\author{ejjr}
+\subtitle{MMaTeX - eScience}
+\author{mmatex.com}
 
 %%%%%%% Para pegar el log.. %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \logo{%
@@ -77,14 +77,16 @@ Es uniforme porque la velocidad no var\'ia en el tiempo; \\
 \draw[->] (0,0) -- (0,4.5) node[left=0.5cm, midway, rotate=90] {v(cm/s)};
 \draw[dashed] (0,2.5) -- (8.5,2.5);
 \foreach \x in {1,2,3,4,5,6,7}
-    \fill[red] (\x,2.5) circle (2pt);
+    \fill[red] (\x,2.5) circle (5pt);
 \end{tikzpicture}
 \end{center}
 \end{frame}
 
 \begin{frame}
 \frametitle{MRU}
-\input{enunciado_final.tex}
+
+Un << ferrocarril >> { se desplaza } { 1400 centimetros } cada { 20 horas }. ?`Qu\'e { distancia } recorre al cabo de { 300 segundos ?} %% Hay 1 elementos de distancia %% Hay 2 elementos de tiempo %% Hay 0 elementos de velocidad
+
 
 \begin{itemize}
 \item El 1er paso en la resoluci\'on de cualquier problema, es la
